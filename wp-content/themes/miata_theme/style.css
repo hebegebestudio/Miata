@@ -4,3 +4,102 @@
   Author: Trevor
 */
 
+/*==========  Mobile First Method  ==========*/
+
+
+
+
+  body {
+    background: url("images/dot_pattern.png");
+  }
+  
+  h3 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18pt;
+    font-style: none;
+    color: #333d50;
+  }
+
+
+  .colors li {
+    display: inline-block; 
+    border: 2px, color: #f2f2f2;
+    width: 50px;
+    height: 50px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 9pt;
+    text-align: center; 
+    font-style: none;
+    color: #333d50;
+  }
+
+  .colors li.black {background-color: #404040;}
+  .colors li.green {background-color: #014225;}
+  .colors li.yellow {background-color: #ffdb25;}
+  .colors li.reset {background-color: #fff;}
+  .colors li.pink {background-color: #e0218a;}
+  .colors li.blue {background-color: #29aae2;}
+
+  ul li {
+      display: inline-block;
+      vertical-align: top;
+      border: 2px, color: #f2f2f2;
+      font-size: 8pt; 
+  }
+
+  ul li img {
+    height: 50px;
+    width: 50px;
+  }
+
+  .builder {
+    width: 1024px;
+    position: absolute;
+
+  }
+
+  .car {
+    top: 0px;
+    left: 0px;
+    position: absolute;
+  } 
+  
+  .overlay {
+    position: absolute;
+    top: 81px;
+    left: 0px;
+  }
+  .overlay img {
+    top: 80px;
+    position: absolute;
+    left: 2px;
+  }
+
+  .well-sm {
+    width: 100%;
+  }
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (min-width : 320px) {
+        
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (min-width : 480px) {
+
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
+
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) {
+
+    }
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+
+    }
