@@ -1,7 +1,7 @@
 /**
-  Theme Name: Basic Theme
+  Theme Name: Miatas Theme
   Version: 1
-  Author: Not Trev
+  Author: Robert Sliger, who is not Trev
 */
 
   body {
@@ -50,34 +50,36 @@ ul li img {
 	margin:0px;
 	top:0px;
 	position: relative;
-	background-color: green;
 	  -webkit-transition: width 2s; /* Safari */
     transition: width 2s;
 }
 
 .wheels {
 	position: absolute;
-	top:0px;
-	left:0px;
-	background-color: rgba(0,0,0, .5);
+	top:-1px;
+	left:px;
 }
-  .wheels img{
+
+.wheels img{
 	width:100%;
 }
 .interior {
 	position: absolute;
-	top:0px;
-	left:0px;
-	background-color: rgba(0,0,0, .5);
+	top:-2px;
+	left:2px;
+}
+
+.interior img{
+  width: 100%;
+  /*top:-1px;
+  left:1px;*/
 }
 
 #overlay {
     position: absolute;
     top: 0px;
     left: 0px;
-    z-index: 1000;
     margin:0px;
-    background-color: rgba(0,0,0, .5);
     border:10px solid yellow;
   }
 
@@ -105,19 +107,23 @@ ul li img {
 
     /* Small Devices, Tablets */
     @media only screen and (min-width : 768px) {
-		.builder {
-        	width:768px;
-        }
+  		.builder {
+          	width:768px;
+          }
     }
 
     /* Medium Devices, Desktops */
     @media only screen and (min-width : 992px) {
-
+    .builder {
+          width:992px;
+        }
     }
 
     /* Large Devices, Wide Screens */
     @media only screen and (min-width : 1200px) {
-
+    .builder {
+          width:1024px;
+        }
     }
 
 
