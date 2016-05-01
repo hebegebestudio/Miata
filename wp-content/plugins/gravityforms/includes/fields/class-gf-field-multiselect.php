@@ -82,7 +82,8 @@ class GF_Field_MultiSelect extends GF_Field {
 		 * @param string $placeholder The placeholder text.
 		 * @param integer $form_id The ID of the current form.
 		 */
-		$placeholder = gf_apply_filters( 'gform_multiselect_placeholder', array(
+		$placeholder = gf_apply_filters( array(
+			'gform_multiselect_placeholder',
 			$form_id,
 			$this->id
 		), __( 'Click to select...', 'gravityforms' ), $form_id, $this );
@@ -203,6 +204,10 @@ class GF_Field_MultiSelect extends GF_Field {
 					$cat    = GFCommon::format_post_category( $item, $use_id );
 					$item = GFCommon::format_variable_value( $cat, $url_encode, $esc_html, $format );
 				}
+			}
+		} elseif ( $modifier != 'value' ) {
+			foreach ( $items as &$item ) {
+				$item = GFCommon::selection_display( $item, $this, rgar( $entry, 'currency' ), true );
 			}
 		}
 

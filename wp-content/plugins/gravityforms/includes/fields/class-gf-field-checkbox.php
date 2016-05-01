@@ -68,7 +68,11 @@ class GF_Field_Checkbox extends GF_Field {
 		$value = array();
 		foreach ( $this->inputs as $input ) {
 			if ( ! empty( $_POST[ 'is_submit_' . $this->formId ] ) && $get_from_post_global_var ) {
-				$value[ strval( $input['id'] ) ] = rgpost( 'input_' . str_replace( '.', '_', strval( $input['id'] ) ) );
+				$input_value = rgpost( 'input_' . str_replace( '.', '_', strval( $input['id'] ) ) );
+				if ( is_array( $input_value ) ) {
+					 $input_value = '';
+				}
+				$value[ strval( $input['id'] ) ] = $input_value;
 			} else {
 				if ( is_array( $parameter_values ) ) {
 					foreach ( $parameter_values as $item ) {
@@ -186,6 +190,11 @@ class GF_Field_Checkbox extends GF_Field {
 		if ( empty( $value ) ){
 			return '';
 		} elseif ( is_array( $value ) ){
+			foreach ( $value as &$v ) {
+				if ( ! is_string( $v ) ) {
+					$v = '';
+				}
+			}
 			return implode( ',', $value );
 		} else {
 			return $this->sanitize_entry_value( $value, $form['id'] );
@@ -237,7 +246,8 @@ class GF_Field_Checkbox extends GF_Field {
 								<label for='choice_{$id}' id='label_{$id}'>{$choice['text']}</label>
 							</li>";
 
-				$choices .= gf_apply_filters( 'gform_field_choice_markup_pre_render', array(
+				$choices .= gf_apply_filters( array(
+					'gform_field_choice_markup_pre_render',
 					$this->formId,
 					$this->id
 				), $choice_markup, $choice, $this, $value );
@@ -259,7 +269,7 @@ class GF_Field_Checkbox extends GF_Field {
 			}
 		}
 
-		return gf_apply_filters( 'gform_field_choices', $this->formId, $choices, $this );
+		return gf_apply_filters( array( 'gform_field_choices', $this->formId, $this->id ), $choices, $this );
 
 	}
 

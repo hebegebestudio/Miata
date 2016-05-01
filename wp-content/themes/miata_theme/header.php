@@ -10,5 +10,14 @@
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bootstrap.min.js"></script>
 	<?php wp_head();?>
 </head>
-<body>
+
+<!--  -->
+
+<body
+	<?php 
+		if (is_home() ){
+			echo ('style="background-image:url('.get_field('background').')"');
+		}	
+?>
+>
   <div class="content">

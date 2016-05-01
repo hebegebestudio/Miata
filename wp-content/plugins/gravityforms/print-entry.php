@@ -82,6 +82,17 @@ if ( 0 == $leads ) {
 			'value'    => $val,
 		);
 	}
+
+	/**
+	 * Allow the entry list search criteria to be overridden.
+	 *
+	 * @since  1.9.14.30
+	 *
+	 * @param array $search_criteria An array containing the search criteria.
+	 * @param int $form_id The ID of the current form.
+	 */
+	$search_criteria = gf_apply_filters( array( 'gform_search_criteria_entry_list', $form_id ), $search_criteria, $form_id );
+
 	$lead_ids = GFFormsModel::search_lead_ids( $form_id, $search_criteria );
 } else {
 	$lead_ids = explode( ',', $leads );
@@ -113,7 +124,7 @@ $min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG || isset( $_GET['gform_debug'] 
 	<title>
 		Print Preview :
 		<?php echo esc_html( $form['title'] ) ?> :
-		<?php echo count( $lead_ids ) > 1 ? esc_html__( 'Entry # ', 'gravityforms' ) . $lead_ids[0] : esc_html__( 'Bulk Print', 'gravityforms' ); ?>
+		<?php echo count( $lead_ids ) > 1 ? esc_html__( 'Entry # ', 'gravityforms' ) . absint( $lead_ids[0] ) : esc_html__( 'Bulk Print', 'gravityforms' ); ?>
 	</title>
 	<link rel='stylesheet' href='<?php echo GFCommon::get_base_url() ?>/css/print<?php echo $min; ?>.css' type='text/css' />
 <?php
@@ -132,7 +143,7 @@ if ( ! empty( $styles ) ) {
  *
  * @see https://gist.github.com/spivurno/e7d1e4563986b3bc5ac4
  */
-$auto_print = gf_apply_filters( 'gform_print_entry_disable_auto_print', array( $form['id'] ), false, $form ) ? '' : 'onload="window.print();"';
+$auto_print = gf_apply_filters( array( 'gform_print_entry_disable_auto_print', $form['id'] ), false, $form ) ? '' : 'onload="window.print();"';
 
 ?>
 </head>

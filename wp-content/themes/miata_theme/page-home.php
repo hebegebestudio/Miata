@@ -31,6 +31,8 @@ jQuery(document).ready(function($){
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
+
+
 <div class="builder">
 
 
@@ -123,6 +125,10 @@ jQuery(document).ready(function($){
 
 </div>
 
+
+<FORM>
+  <INPUT TYPE="button" onClick="history.go(0)" VALUE="Refresh">
+</FORM>
 
 
 
