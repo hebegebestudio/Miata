@@ -70,7 +70,7 @@ jQuery(document).ready(function($){
           <li class="green" data-color="#014225"></li>
           <li class="pink" data-color="#e0218a"></li>
           <li class="blue" data-color="#29aae2"></li>
-          <li class="reset" data-color="#fff">RESET</li>
+          <li class="reset" data-color="#fff"></li>
         </ul> 
       </div>
     </div>
@@ -122,15 +122,20 @@ jQuery(document).ready(function($){
         </ul>
       </div>
     </div>
+    
+    <div class="reset">
+      <form>
+        <INPUT TYPE="button" onClick="history.go(0)" VALUE="RESET">
+      </FORM>
+    </div>
+
+    <div id="social-container">
+        <div class="social">
+
+        </div>
+      </div>
 
 </div>
-
-
-<FORM>
-  <INPUT TYPE="button" onClick="history.go(0)" VALUE="Refresh">
-</FORM>
-
-
 
 
 <?php endwhile; endif; get_footer(); ?>
