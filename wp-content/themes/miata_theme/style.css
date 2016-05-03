@@ -37,7 +37,7 @@
     color: #cee5e9;
   }
 
-  .colors li.black {background-color: #404040;}
+  .colors li.black {background= #404040;}
   .colors li.green {background-color: #014225;}
   .colors li.yellow {background-color: #ffdb25;}
   .colors li.reset {background-color: #fff;}
@@ -54,6 +54,18 @@
 ul li img {
 	height: 50px;
 	width: 50px;
+}
+
+.section-text {
+  width: ;
+}
+
+.swatch-container {
+  width: 25%;
+  min-height: 75px;
+  display: inline-block;
+  float: left;
+  text-align: center;
 }
 
 .builder {
@@ -159,11 +171,39 @@ ul li img {
         	width:320px;
         }
 
+       .well {
+          min-height: 150px;
+          height: auto;
+          background-color: #000;
+          border: 2px; 
+          color:#e4e4e4;
+        }
+
         h3 {
           font-family: 'Raleway', sans-serif;
           font-size: 12pt;
           font-style: none;
           color: #cee5e9;
+        }
+
+        .section-text {
+          max-width: 50%;
+          /* min-height: 150px;
+          float: left; */
+          display: inline-block;
+          text-align: right;
+        }
+
+        .btn-default {
+          background-color: #000;
+        }
+
+        .swatch-container {
+          max-width: 50%;
+          /* max-height: 125px; */
+          display: inline-block;
+          float: left;
+          text-align: center;
         }
     }
 

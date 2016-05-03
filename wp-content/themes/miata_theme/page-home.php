@@ -60,10 +60,12 @@ jQuery(document).ready(function($){
 
     </g>
   </svg>
-    
+  
+  <div class="row">  
     <div class="col-xs-12 controls">
       <div class="well well-sm">
-        <h3>Exterior Colors</h3>
+        <h3 class='section-text'>Exterior Colors</h3>
+        
         <ul class="colors">
           <li class="black" data-color="#404040"></li>
           <li class="yellow" data-color="#ffdb25"></li>
@@ -72,68 +74,105 @@ jQuery(document).ready(function($){
           <li class="blue" data-color="#29aae2"></li>
           <li class="reset" data-color="#fff"></li>
         </ul> 
+
+        <!--ul class="colors">
+          <li class="black" data-color="#404040"></li>
+          <li class="yellow" data-color="#ffdb25"></li>
+          <li class="green" data-color="#014225"></li>
+          <li class="pink" data-color="#e0218a"></li>
+          <li class="blue" data-color="#29aae2"></li>
+          <li class="reset" data-color="#fff"></li>
+        </ul--> 
+
+
       </div>
     </div>
-    
-    <div class="col-xs-12 controls">
-      <div class="well well-sm">
-        <h3>Interior Colors</h3>
-        <ul class="nav-interior">
-          <li data-picture="<?php bloginfo('stylesheet_directory');?>/images/black-interior.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/black-leather.jpg">BLACK</li>
-          <li data-picture="<?php bloginfo('stylesheet_directory');?>/images/white-interior.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/white-leather.jpg">WHITE</li>
-          <li data-picture="<?php bloginfo('stylesheet_directory');?>/images/brown-interior.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/brown-leather.jpg">BROWN</li>
-          <li data-picture="<?php bloginfo('stylesheet_directory');?>/images/red-interior.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/red-leather.jpg">RED</li>
-        </ul>
+  </div>
+
+    <div class='row'>
+      <div class="col-xs-12">
+        <div class="well well-sm">
+        <h3 class="section-text">Interior Colors</h3>
+          <div class="col-xs-12">
+          <ul class="nav-interior">
+            <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/black-interior.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/BlackLeatherSwatch.png"></li>
+            <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/white-interior.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/WhiteLeatherSwatch.png"></li>
+            <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/brown-interior.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/BrownLeatherSwatch.png"></li>
+            <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/red-interior.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/RedLeatherSwatch.png"></li>
+          </ul>
+        </div>
+        </div>
       </div>
     </div>
     
     <!-- -->
-    <div class="col-xs-12 controls">
-      <div class="well well-sm">
-        <h3>Wheels/Suspension</h3>
-        <ul class="nav-wheels">
-          <li data-picture="<?php bloginfo('stylesheet_directory');?>/images/gold-oz-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/gold-oz-wheel-thumb.png">GOLD O-Z/STOCK</li>
-          <li data-picture="<?php bloginfo('stylesheet_directory');?>/images/white-oz-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/white-oz-wheel-thumb.png">O-Z 40TH ANNIVERSARY/STOCK to TRACK</li>
-          <li data-picture="<?php bloginfo('stylesheet_directory');?>/images/black-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/black-wheel-thumb.png">AMERICAN WHEEL MIDNIGHT/STOCK to TRACK</li>
-          <li data-picture="<?php bloginfo('stylesheet_directory');?>/images/racing-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/racing-wheel-thumb.png">ENKEI COMPETITION/SPORT to TRACK</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-xs-12 controls">
-      <div class="well well-sm">
-        <h3>Powertrains</h3>
-        <ul class="nav-engines">
-          <li data-picture="<?php bloginfo('stylesheet_directory');?>/images/2L-car.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/2.0L.png">2.0T I4 (275 HP)</li>
-          <li data-picture="<?php bloginfo('stylesheet_directory');?>/images/2.3L-car.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/2.3L.png">2.3T I4 (306 HP)</li>
-          <li data-picture="<?php bloginfo('stylesheet_directory');?>/images/2.7L-car.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/2.7L.png">2.7T V6 (365 HP)</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-xs-12 controls">
-      <div class="well well-sm">
-        <h3>Packages</h3>
-        <ul class="nav-wheels">
-          <li data-picture="<?php bloginfo('stylesheet_directory');?>/images/gold-oz-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/mazdaspeed-swatch.png">MAZDASPEED TRACK</li>
-          <li data-picture="<?php bloginfo('stylesheet_directory');?>/images/white-oz-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/murder-swatch.png">MURDERED</li>
-          <li data-picture="<?php bloginfo('stylesheet_directory');?>/images/black-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/gentleman-swatch.png">THE GENTLEMAN</li>
-          <li data-picture="<?php bloginfo('stylesheet_directory');?>/images/racing-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/barbie-swatch.png">THE BARBIE</li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="reset">
-      <form>
-        <INPUT TYPE="button" onClick="history.go(0)" VALUE="RESET">
-      </FORM>
-    </div>
-
-    <div id="social-container">
-        <div class="social">
-
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="well well-sm">
+          <h3 class="section-text">Wheels/Suspension</h3>
+          <ul class="nav-wheels">
+            <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/gold-oz-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/gold-wheel-thumb.png"></li>
+            <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/white-oz-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/white-wheel-thumb.png"></li>
+            <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/black-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/black-wheel-thumb.png"></li>
+            <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/racing-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/racing-wheel-thumb.png"></li>
+          </ul>
         </div>
       </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="well well-sm">
+        <h3 class="section-text">Powertrains</h3>
+        <ul class="nav-engines">
+          <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/2L-car.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/2.0Swatch.png"></li>
+          <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/2.3L-car.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/2.3Swatch.png"></li>
+          <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/2.7L-car.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/2.7Swatch.png"></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-xs-12">
+      <div class="well well-sm">
+        <h3 class="section-text">Packages</h3>
+        <ul class="nav-wheels">
+
+          <!--                                                                 Overlay Image                                                               Thumbnail -->
+          <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/gold-oz-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/MazdaspeedSwatch.png"></li>
+          <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/white-oz-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/MurderSwatch.png"></li>
+          <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/black-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/GentlemanSwatch.png"></li>
+          <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/racing-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/BarbieSwatch.png"></li>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+<!-- Submit button, get it working -->
+
+  <div class="row">  
+
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <button type="button" class="btn btn-default">RESET</button>
+      <button type="button" class="btn btn-default">SUBMIT</button>
+    </div>
+
+    <!--div class="col-xs-12">
+      <div class="reset">
+        <form>
+          <INPUT TYPE="button" onClick="history.go(0)" VALUE="RESET">
+        </FORM>
+      </div>
+    </div>
+
+    <div class="col-xs-12">
+    <div id="social-container">
+        <div class="btn btn-default"><P>FUCK YOU YOU FUCKING FUCK</P></div>
+    </div>
+    </div-->
+  </div>
 
 </div>
 
