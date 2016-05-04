@@ -1,37 +1,60 @@
-<?php get_header();
+<?php 
+
+if(isset($_POST['submit'])) {
+  echo $_POST['exterior'];
+}
+
+get_header();
 /*
 Template Name: Home Page
 */
+
+
+
 ?>
 
 
  <script>
   //color swap for car
-
-jQuery(document).ready(function($){
-    $('.colors li').click( function(){
-         var color = $(this).attr('data-color');
-         $('#overlay').css('fill',color);
-    });
-});
-  //image swapper for wheels and interior
   $(function(){
+
+      $('.colors input').click( function(){
+           var color = $(this).attr('data-color');
+           $('#overlay').css('fill',color);
+      });
+
       $('.nav-interior li').click(function(){
         var image = $(this).attr('data-picture');
         $('.interior').empty();
         $('.interior').append('<img src="'+image+'">');
       });
+
       $('.nav-wheels li').click(function(){
         var image = $(this).attr('data-picture');
         $('.wheels').empty();
         $('.wheels').append('<img src="'+image+'">');
       });
+
+
+      // Select package
+      $('.packages button').click(function(){
+
+        var wheel = $(this).attr('data-wheel');
+        $('#a'+wheel).trigger('click');
+
+        var exterior  = $(this).attr('data-exterior');
+        $('#a'+exterior).trigger('click');
+
+      });
+
+
+
     });
  </script>
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-
+<form action="" method="post">
 
 <div class="builder">
 
@@ -67,24 +90,17 @@ jQuery(document).ready(function($){
         <h3 class='section-text'>Exterior Colors</h3>
         
         <ul class="colors">
-          <li class="black" data-color="#404040"></li>
-          <li class="yellow" data-color="#ffdb25"></li>
-          <li class="green" data-color="#014225"></li>
-          <li class="pink" data-color="#e0218a"></li>
-          <li class="blue" data-color="#29aae2"></li>
-          <li class="reset" data-color="#fff"></li>
+          <?php 
+
+          $args = array('post_type' => 'exterior');
+          $exteriors = New wp_query($args);
+          if ($exteriors->have_posts()) : while ($exteriors->have_posts()) : $exteriors->the_post(); ?>
+  
+          <input type="radio" name="exterior" id="a<?php the_id();?>" style="background-color:<?php echo the_field('color');?>" data-color="<?php echo the_field('color');?>">
+         
+            <?php endwhile; endif; ?>
+
         </ul> 
-
-        <!--ul class="colors">
-          <li class="black" data-color="#404040"></li>
-          <li class="yellow" data-color="#ffdb25"></li>
-          <li class="green" data-color="#014225"></li>
-          <li class="pink" data-color="#e0218a"></li>
-          <li class="blue" data-color="#29aae2"></li>
-          <li class="reset" data-color="#fff"></li>
-        </ul--> 
-
-
       </div>
     </div>
   </div>
@@ -111,10 +127,15 @@ jQuery(document).ready(function($){
         <div class="well well-sm">
           <h3 class="section-text">Wheels/Suspension</h3>
           <ul class="nav-wheels">
-            <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/gold-oz-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/gold-wheel-thumb.png"></li>
-            <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/white-oz-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/white-wheel-thumb.png"></li>
-            <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/black-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/black-wheel-thumb.png"></li>
-            <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/racing-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/racing-wheel-thumb.png"></li>
+              <?php 
+
+          $args = array('post_type' => 'wheels');
+          $wheels = New wp_query($args);
+          if ($wheels->have_posts()) : while ($wheels->have_posts()) : $wheels->the_post(); ?>
+            <li class="swatch-container" id="a<?php the_id();?>" data-picture="<?php the_field('image');?>">
+              <img src="<?php the_field('thumbnail');?>">
+            </li>
+           <?php endwhile; endif; ?>
           </ul>
         </div>
       </div>
@@ -133,17 +154,29 @@ jQuery(document).ready(function($){
       </div>
     </div>
 
+
+
     <div class="col-xs-12">
       <div class="well well-sm">
         <h3 class="section-text">Packages</h3>
-        <ul class="nav-wheels">
+        <ul class="packages">
+          <?php 
 
-          <!--                                                                 Overlay Image                                                               Thumbnail -->
-          <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/gold-oz-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/MazdaspeedSwatch.png"></li>
-          <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/white-oz-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/MurderSwatch.png"></li>
-          <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/black-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/GentlemanSwatch.png"></li>
-          <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/racing-wheels.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/BarbieSwatch.png"></li>
-        </ul>
+          $args = array('post_type' => 'package');
+          $packages = New wp_query($args);
+          if ($packages->have_posts()) : while ($packages->have_posts()) : $packages->the_post(); ?>
+  
+          <button data-wheel="<?php the_field('wheels');?>" data-exterior="<?php the_field('exterior');?>"
+            >
+            <?php the_title();?>
+          </button>
+
+         
+           <?php the_field('exterior');?>
+         
+          <?php endwhile; endif; ?>
+
+        </ul> 
       </div>
     </div>
 
@@ -156,8 +189,12 @@ jQuery(document).ready(function($){
 
     <div class="btn-group btn-group-justified" role="group" aria-label="...">
       <button type="button" class="btn btn-default">RESET</button>
-      <button type="button" class="btn btn-default">SUBMIT</button>
+      <input type="submit" name="submit" value="Submit"class="btn btn-primary" />
     </div>
+
+</form>
+
+
 
     <!--div class="col-xs-12">
       <div class="reset">
