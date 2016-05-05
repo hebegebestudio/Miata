@@ -42,8 +42,14 @@ Template Name: Home Page
         var wheel = $(this).attr('data-wheel');
         $('#a'+wheel).trigger('click');
 
-        var exterior  = $(this).attr('data-exterior');
+        var exterior = $(this).attr('data-exterior');
         $('#a'+exterior).trigger('click');
+
+        var interior = $(this).attr('data-interior');
+        $('#a'+interior).trigger('click');
+
+        var engine = $(this).attr('data-engine');
+        $('#a'+engine).trigger('click');
 
       });
 
@@ -111,10 +117,19 @@ Template Name: Home Page
         <h3 class="section-text">Interior Colors</h3>
           <div class="col-xs-12">
           <ul class="nav-interior">
-            <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/black-interior.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/BlackLeatherSwatch.png"></li>
-            <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/white-interior.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/WhiteLeatherSwatch.png"></li>
-            <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/brown-interior.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/BrownLeatherSwatch.png"></li>
-            <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/red-interior.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/RedLeatherSwatch.png"></li>
+            <?php 
+
+            $args = array('post_type' => 'interior');
+            $interiors = New wp_query($args);
+            if ($interiors->have_posts()) : while ($interiors->have_posts()) : $interiors->the_post(); ?>
+              <input type="radio" name="interior" id="a<?php the_id();?>" style="background-image:<?php echo the_field('thumbnail');?>" data-color="<?php echo the_field('image');?>">
+
+
+            <!--li class="swatch-container" id="a<?php the_id();?>" data-picture="<?php the_field('image');?>">
+              <img src="<?php the_field('thumbnail');?>">
+            </li-->
+
+            <?php endwhile; endif; ?>
           </ul>
         </div>
         </div>
@@ -129,12 +144,14 @@ Template Name: Home Page
           <ul class="nav-wheels">
               <?php 
 
-          $args = array('post_type' => 'wheels');
-          $wheels = New wp_query($args);
-          if ($wheels->have_posts()) : while ($wheels->have_posts()) : $wheels->the_post(); ?>
-            <li class="swatch-container" id="a<?php the_id();?>" data-picture="<?php the_field('image');?>">
+            $args = array('post_type' => 'wheels');
+            $wheels = New wp_query($args);
+            if ($wheels->have_posts()) : while ($wheels->have_posts()) : $wheels->the_post(); ?>
+              <input type="radio" name="wheels" id="a<?php the_id();?>" style="background-image:<?php echo the_field('thumbnail');?>" data-color="<?php echo the_field('image');?>">
+
+            <!--li class="swatch-container" id="a<?php the_id();?>" data-picture="<?php the_field('image');?>">
               <img src="<?php the_field('thumbnail');?>">
-            </li>
+            </li-->
            <?php endwhile; endif; ?>
           </ul>
         </div>
@@ -147,9 +164,17 @@ Template Name: Home Page
         <div class="well well-sm">
         <h3 class="section-text">Powertrains</h3>
         <ul class="nav-engines">
-          <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/2L-car.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/2.0Swatch.png"></li>
-          <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/2.3L-car.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/2.3Swatch.png"></li>
-          <li class="swatch-container" data-picture="<?php bloginfo('stylesheet_directory');?>/images/2.7L-car.png"><img src="<?php bloginfo('stylesheet_directory');?>/images/2.7Swatch.png"></li>
+          <?php 
+
+            $args = array('post_type' => 'engines');
+            $engine = New wp_query($args);
+            if ($engine->have_posts()) : while ($engine->have_posts()) : $engine->the_post(); ?>
+              <input type="radio" name="engines" id="a<?php the_id();?>" style="background-image:<?php echo the_field('thumbnail');?>">
+
+            <!--li class="swatch-container" id="a<?php the_id();?>" data-picture="<?php the_field('image');?>">
+              <img src="<?php the_field('thumbnail');?>">
+            </li-->
+           <?php endwhile; endif; ?>
         </ul>
       </div>
     </div>
