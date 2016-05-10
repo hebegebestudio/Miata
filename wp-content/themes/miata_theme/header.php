@@ -20,4 +20,11 @@
 		}	
 ?>
 >
+
+<div class="banner">
+  		<div class="logo"></div>
+  	</div>
+  	
   <div class="content">
+
+  	

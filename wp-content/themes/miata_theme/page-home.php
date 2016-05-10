@@ -23,13 +23,13 @@ Template Name: Home Page
            $('#overlay').css('fill',color);
       });
 
-      $('.nav-interior li').click(function(){
+      $('.nav-interior input').click(function(){
         var image = $(this).attr('data-picture');
         $('.interior').empty();
         $('.interior').append('<img src="'+image+'">');
       });
 
-      $('.nav-wheels li').click(function(){
+      $('.nav-wheels input').click(function(){
         var image = $(this).attr('data-picture');
         $('.wheels').empty();
         $('.wheels').append('<img src="'+image+'">');
@@ -37,19 +37,20 @@ Template Name: Home Page
 
 
       // Select package
-      $('.packages button').click(function(){
+      $('.packages a').click(function(){
 
-        var wheel = $(this).attr('data-wheel');
-        $('#a'+wheel).trigger('click');
+
+        var wheels = $(this).attr('data-wheels');
+        $('#a'+wheels).attr('checked', true).trigger('click');
 
         var exterior = $(this).attr('data-exterior');
-        $('#a'+exterior).trigger('click');
+        $('#a'+exterior).attr('checked', true).trigger('click');
 
         var interior = $(this).attr('data-interior');
-        $('#a'+interior).trigger('click');
+        $('#a'+interior).attr('checked', true).trigger('click');
 
         var engine = $(this).attr('data-engine');
-        $('#a'+engine).trigger('click');
+        $('#a'+engine).attr('checked', true).trigger('click');
 
       });
 
@@ -62,7 +63,7 @@ Template Name: Home Page
 
 <form action="" method="post">
 
-<div class="builder">
+<div class="container">
 
 
       <div class="interior"></div>
@@ -90,68 +91,66 @@ Template Name: Home Page
     </g>
   </svg>
   
-  <div class="row">  
-    <div class="col-xs-12 controls">
-      <div class="well well-sm">
-        <h3 class='section-text'>Exterior Colors</h3>
+
+      <div class="black-box">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3 text-center">
+              <h3>Exterior Colors</h3>
+            </div>
+            <div class="col-xs-12 col-sm-8">
+              <ul class="colors">
+                <?php 
+
+                $args = array('post_type' => 'exterior');
+                $exteriors = New wp_query($args);
+                if ($exteriors->have_posts()) : while ($exteriors->have_posts()) : $exteriors->the_post(); ?>
         
-        <ul class="colors">
-          <?php 
+                <input type="radio" name="exterior" id="a<?php the_id();?>" style="background-color:<?php echo the_field('color');?>" data-color="<?php echo the_field('color');?>">
+               
+                <?php endwhile; endif; ?>
 
-          $args = array('post_type' => 'exterior');
-          $exteriors = New wp_query($args);
-          if ($exteriors->have_posts()) : while ($exteriors->have_posts()) : $exteriors->the_post(); ?>
-  
-          <input type="radio" name="exterior" id="a<?php the_id();?>" style="background-color:<?php echo the_field('color');?>" data-color="<?php echo the_field('color');?>">
-         
-            <?php endwhile; endif; ?>
-
-        </ul> 
+              </ul> 
+            </div>
+          </div>
       </div>
-    </div>
-  </div>
 
-    <div class='row'>
-      <div class="col-xs-12">
-        <div class="well well-sm">
-        <h3 class="section-text">Interior Colors</h3>
-          <div class="col-xs-12">
+
+    <div class="black-box">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 text-center">
+          <h3>Interior Colors</h3>
+        </div>  
+        <div class="col-xs-12 col-sm-8">
           <ul class="nav-interior">
             <?php 
 
             $args = array('post_type' => 'interior');
             $interiors = New wp_query($args);
             if ($interiors->have_posts()) : while ($interiors->have_posts()) : $interiors->the_post(); ?>
-              <input type="radio" name="interior" id="a<?php the_id();?>" style="background-image:<?php echo the_field('thumbnail');?>" data-color="<?php echo the_field('image');?>">
+              <input type="radio" name="interior" id="a<?php the_id();?>" style="background-image: url(<?php echo the_field('thumbnail');?>)" data-picture="<?php echo the_field('image');?>">
 
-
-            <!--li class="swatch-container" id="a<?php the_id();?>" data-picture="<?php the_field('image');?>">
-              <img src="<?php the_field('thumbnail');?>">
-            </li-->
 
             <?php endwhile; endif; ?>
           </ul>
-        </div>
         </div>
       </div>
     </div>
     
     <!-- -->
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="well well-sm">
-          <h3 class="section-text">Wheels/Suspension</h3>
+    <div class="black-box">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 text-center">
+          <h3>Wheels</h3>
+        </div>  
+        <div class="col-xs-12 col-sm-8"> 
           <ul class="nav-wheels">
               <?php 
 
             $args = array('post_type' => 'wheels');
             $wheels = New wp_query($args);
             if ($wheels->have_posts()) : while ($wheels->have_posts()) : $wheels->the_post(); ?>
-              <input type="radio" name="wheels" id="a<?php the_id();?>" style="background-image:<?php echo the_field('thumbnail');?>" data-color="<?php echo the_field('image');?>">
+              <input type="radio" name="wheels" id="a<?php the_id();?>" style="background-image: url(<?php echo the_field('thumbnail');?>)" data-picture="<?php echo the_field('image');?>">
 
-            <!--li class="swatch-container" id="a<?php the_id();?>" data-picture="<?php the_field('image');?>">
-              <img src="<?php the_field('thumbnail');?>">
-            </li-->
            <?php endwhile; endif; ?>
           </ul>
         </div>
@@ -159,31 +158,34 @@ Template Name: Home Page
     </div>
 
 
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="well well-sm">
-        <h3 class="section-text">Powertrains</h3>
+    <div class="black-box">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 text-center">
+          <h3>Powertrains</h3>
+        </div>  
+        <div class="col-xs-12 col-sm-8">        
         <ul class="nav-engines">
           <?php 
 
-            $args = array('post_type' => 'engines');
+            $args = array('post_type' => 'engine');
             $engine = New wp_query($args);
             if ($engine->have_posts()) : while ($engine->have_posts()) : $engine->the_post(); ?>
-              <input type="radio" name="engines" id="a<?php the_id();?>" style="background-image:<?php echo the_field('thumbnail');?>">
+              <input type="radio" name="engine" id="a<?php the_id();?>" style="background-image: url(<?php echo the_field('thumbnail');?>)">
 
-            <!--li class="swatch-container" id="a<?php the_id();?>" data-picture="<?php the_field('image');?>">
-              <img src="<?php the_field('thumbnail');?>">
-            </li-->
+
            <?php endwhile; endif; ?>
         </ul>
       </div>
     </div>
+  </div>
 
 
-
-    <div class="col-xs-12">
-      <div class="well well-sm">
-        <h3 class="section-text">Packages</h3>
+    <div class="black-box-packages">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 text-center">
+          <h3>Packages</h3>
+        </div>  
+        <div class="col-xs-12 col-sm-8">
         <ul class="packages">
           <?php 
 
@@ -191,52 +193,52 @@ Template Name: Home Page
           $packages = New wp_query($args);
           if ($packages->have_posts()) : while ($packages->have_posts()) : $packages->the_post(); ?>
   
-          <button data-wheel="<?php the_field('wheels');?>" data-exterior="<?php the_field('exterior');?>"
+          <a class="btn btn-primary"
+            data-wheels="<?php the_field('wheels');?>"
+            data-exterior="<?php the_field('exterior');?>"
+            data-interior="<?php the_field('interior');?>"
+            data-engine="<?php the_field('engine');?>"
             >
             <?php the_title();?>
-          </button>
+          </a>
 
-         
-           <?php the_field('exterior');?>
-         
           <?php endwhile; endif; ?>
 
         </ul> 
       </div>
     </div>
-
+  </div>
 
 
 
 <!-- Submit button, get it working -->
 
-  <div class="row">  
-
-    <div class="btn-group btn-group-justified" role="group" aria-label="...">
-      <button type="button" class="btn btn-default">RESET</button>
-      <input type="submit" name="submit" value="Submit"class="btn btn-primary" />
-    </div>
-
-</form>
 
 
-
-    <!--div class="col-xs-12">
-      <div class="reset">
-        <form>
-          <INPUT TYPE="button" onClick="history.go(0)" VALUE="RESET">
-        </FORM>
-      </div>
-    </div>
-
-    <div class="col-xs-12">
-    <div id="social-container">
-        <div class="btn btn-default"><P>FUCK YOU YOU FUCKING FUCK</P></div>
-    </div>
-    </div-->
   </div>
 
-</div>
+  <div class="social-box">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <ul class="list-inline">
+          <li><a href="http://www.facebook.com"><img src="<?php bloginfo('stylesheet_directory');?>/images/fb.png"></li>
+          <li><a href="http://www.instagram.com"><img src="<?php bloginfo('stylesheet_directory');?>/images/ig.png"></li>
+          <li><a href="http://www.youtube.com"><img src="<?php bloginfo('stylesheet_directory');?>/images/u2.png"></li>
+          <li><a href="http://www.twitter.com"><img src="<?php bloginfo('stylesheet_directory');?>/images/twit.png"></li>
+        </ul>
+      </div>
+    </div> 
 
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+        <p>Copyright © 2016 Moda Miata. All rights reserved. Site designed by HebegebeStudio.<br>
+            <!-- insert horizontal line here? -->
+            Obey all traffic laws and regulations when using your Moda Miata in public places.<br>
+            Where a helmet and full protective clothing when operating your Moda Miata at the track.
+        </p>
+      </div>     
+    </div>    
+
+</div>
 
 <?php endwhile; endif; get_footer(); ?>
