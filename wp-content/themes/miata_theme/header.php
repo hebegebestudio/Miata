@@ -21,8 +21,9 @@
 ?>
 >
 
-<div class="banner">
-  		<div class="logo"></div>
+	<div id="banner">
+  		<div class="logo"><img class="img-responsive" src="<?php bloginfo('stylesheet_directory');?>/images/moda_miata_logo.png"></div>
+  		<h2>MIATAS > MONSTERS</h2>
   	</div>
   	
   <div class="content">

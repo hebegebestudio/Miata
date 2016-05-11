@@ -14,8 +14,16 @@
   h3 {
     font-family: 'Raleway', sans-serif;
     font-size: 20pt;
-    font-style: none;
     color: #cee5e9;
+  }
+
+  h2 {
+    font-family: 'Raleway+800', sans-serif;
+    font-size: 20pt;
+    font-style: none;
+    text-align: right;
+    line-height: 70px;
+    margin-right: 70px;
   }
 
   p {
@@ -25,15 +33,17 @@
     color: #cee5e9;
   }  
 
-.banner {
+#banner {
   width: 100%;
-  height: 40px;
+  height: 60px;
+  margin-top: 30px;
   background-color: #ddfa22;
 }
 
 .logo {
-  max-height: 25%;
-  float: left;
+  position: absolute;
+  margin-top: -15px;
+  padding-left: 60px; 
 }
 
 input[type="radio"] {
@@ -51,7 +61,6 @@ input[type="radio"] {
 }
 .colors input {
   display: inline-block; 
-  border: 2px, color: #ccc;
   width: 50px;
   height: 50px;
   -webkit-border-radius: 20px;
@@ -65,40 +74,19 @@ input[type="radio"] {
 
 }
 .colors input:focus {
-  outline: 2px solid #ccc;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px; 
+
 }
 
 .black-box {    
   background-color: rgba(0,0,0, .75);
-  width: 50%;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
-  appearance: none;
-  box-shadow: none;
-  border-radius: none;
-  -webkit-appearance: none;
   margin-top: 5px;
-  padding: 20px;
-}
-
-.black-box-packages {
-  float: left;
-  width: 100%;
-  background-color: rgba(0,0,0, .75);
-  padding: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  appearance: none;
-  box-shadow: none;
-  border-radius: none;
-  -webkit-appearance: none;
-  margin-top: 5px;
-  
+  padding: 10px;
 }
 
 .swatch {
@@ -109,25 +97,23 @@ input[type="radio"] {
 }
 
 .container {
-	width:100%;
-	margin:0px;
-	top:0px;
 	position: relative;
-  margin: auto; 
   overflow: hidden; 
-	  -webkit-transition: width 2s; /* Safari */
-    transition: width 2s;
+	-webkit-transition: width 2s; /* Safari */
+  transition: width 2s;
 }
 
 .wheels {
 	position: absolute;
 	top:-1px;
 	left: 0px;
+  z-index: 50;
 }
 
-.wheels img{
-	width:100%;
-}
+/*.wheels img{
+	width:99%;
+}*/
+
 .interior {
 	position: absolute;
 	top:-2px;
@@ -136,8 +122,6 @@ input[type="radio"] {
 
 .interior img{
   width: 100%;
-  /*top:-1px;
-  left:1px;*/
 }
 
 #overlay {
@@ -145,10 +129,34 @@ input[type="radio"] {
     top: 0px;
     left: 0px;
     margin:0px;
-    border:10px solid yellow;
   }
 
-.submit {
+.button {
+    background-color: #000; 
+    border: 5px;
+    color: #cee5e9;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    display: inline-block; 
+    width: 200px;
+    height: 50px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    -webkit-appearance: none;
+    margin-top: 10px;
+    margin-right: 50px;
+
+
+}
+
+/*.reset {
     background-color: #000; 
     border: 5px;
     color: #cee5e9;
@@ -158,18 +166,7 @@ input[type="radio"] {
     display: inline-block;
     font-size: 16px;
 }
-
-.reset {
-    background-color: #000; 
-    border: 5px;
-    color: #cee5e9;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-
+*/
 .social-box {
   background-color: rgba(0,0,0, .75);
   display: inline-block; 
@@ -208,12 +205,10 @@ input[type="radio"] {
         }
 
         .logo {
-          max-height: 25%;
-          float: left;
-        }
-
-        .container {
-        	width:100%;
+          position: absolute;
+          margin-top: -15px;
+          padding-left: 30px; 
+          z-index: 99;
         }
 
         h3 {
@@ -222,7 +217,15 @@ input[type="radio"] {
           font-style: none;
           color: #cee5e9;
         }
-
+        
+        h2 {
+          font-family: 'Raleway+800', sans-serif;
+          font-size: 12pt;
+          font-style: none;
+          text-align: right;
+          line-height: 70px;
+          margin-right: 10px;
+        }
         
          .nav-wheels input {
           display: inline-block; 
@@ -316,11 +319,7 @@ input[type="radio"] {
           border-color: #cee5e9;
         }
 
-        .black-box {
-          width: 100%;
-          background-color: rgba(0,0,0, .75);
-          padding: 5px;
-        }
+      
 
         .black-box-packages {
           float: left;
@@ -340,9 +339,7 @@ input[type="radio"] {
 
     /* Extra Small Devices, Phones */ 
     @media only screen and (min-width : 480px) {
-    	.container {
-        	width:95%;
-        }
+
 
         h3 {
           font-size: 16pt;
@@ -350,13 +347,7 @@ input[type="radio"] {
           color: #cee5e9;
         }
 
-        .black-box {
-          width: 100%;
-          float: left;
-          background-color: rgba(0,0,0, .75);
-          /*padding: 10px;*/
-          margin-top: 10px;
-        }
+      
 
         .black-box-packages {
           float: left;
@@ -391,9 +382,7 @@ input[type="radio"] {
 
     /* Small Devices, Tablets */
     @media only screen and (min-width : 768px) {
-  		.container {
-          	width:95%;
-    }
+
 
       h3 {
           font-size: 18pt;
@@ -401,18 +390,28 @@ input[type="radio"] {
           color: #cee5e9;
         }
 
+
+
     /* Medium Devices, Desktops */
     @media only screen and (min-width : 992px) {
-    .container {
-          width:95%;
+    
+
+      h2 {
+          font-family: 'Raleway+800', sans-serif;
+          font-size: 20pt;
+          font-style: none;
+          text-align: right;
+          line-height: 70px;
+          margin-right: 70px;
         }
     }
 
     /* Large Devices, Wide Screens */
     @media only screen and (min-width : 1200px) {
     .container {
-          width:1024px;
+          max-width:1024px;
         }
+   
 
         h3 {
           font-size: 22pt;

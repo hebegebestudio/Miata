@@ -68,9 +68,10 @@ Template Name: Home Page
 
       <div class="interior"></div>
       <div class="wheels"></div>
+
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 1024 449">
     <g style="isolation:isolate">
-    <g id="car" data-name="car"><image width="100%" height="100%" xlink:href="<?php bloginfo('stylesheet_directory');?>/images/Miata-Overlay.png"/>
+    <g id="car" data-name="car"><image width="100%" height="100%" z-index='1' xlink:href="<?php bloginfo('stylesheet_directory');?>/images/Miata-Overlay.png"/>
      </g>
     
     <path id="overlay" d="M861.15,231l-2.82,2c5.85,2.89,11.88,6.45,14.67,
@@ -90,9 +91,12 @@ Template Name: Home Page
 
     </g>
   </svg>
+
+   <div class="row">
   
 
-      <div class="black-box">
+    <div class="col-xs-12 col-md-6 black-box">
+
           <div class="row">
             <div class="col-xs-12 col-sm-3 text-center">
               <h3>Exterior Colors</h3>
@@ -115,9 +119,9 @@ Template Name: Home Page
       </div>
 
 
-    <div class="black-box">
+    <div class="col-xs-12 col-md-6 black-box">
       <div class="row">
-        <div class="col-xs-12 col-sm-3 text-center">
+        <div class="col-xs-12 col-sm-3 text-center ">
           <h3>Interior Colors</h3>
         </div>  
         <div class="col-xs-12 col-sm-8">
@@ -137,7 +141,8 @@ Template Name: Home Page
     </div>
     
     <!-- -->
-    <div class="black-box">
+    <div class="col-xs-12 col-md-6 black-box">
+
       <div class="row">
         <div class="col-xs-12 col-sm-3 text-center">
           <h3>Wheels</h3>
@@ -158,7 +163,8 @@ Template Name: Home Page
     </div>
 
 
-    <div class="black-box">
+  <div class="col-xs-12 col-md-6 black-box">
+
       <div class="row">
         <div class="col-xs-12 col-sm-3 text-center">
           <h3>Powertrains</h3>
@@ -180,7 +186,7 @@ Template Name: Home Page
   </div>
 
 
-    <div class="black-box-packages">
+    <div class="col-xs-12 col-md-6 black-box">
       <div class="row">
         <div class="col-xs-12 col-sm-3 text-center">
           <h3>Packages</h3>
@@ -207,37 +213,62 @@ Template Name: Home Page
         </ul> 
       </div>
     </div>
-  </div>
+</div>
 
-
-
-<!-- Submit button, get it working -->
-
-
-
-  </div>
-
-  <div class="social-box">
+    <!-- Submit button, get it working -->     
+  <div class="col-xs-12 col-md-6 submit">
     <div class="row">
-      <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-6, col-sm-3">
+          <div class="button">SUBMIT</div>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+          <a class="button">RESET</a>
+        </div>
+      </div>
+    </div>
+  </div>    
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  <div class="col-xs-12 col-md-6 black-box">
+    <div class="row">
+
+      <div class="col-xs-12 text-center">
         <ul class="list-inline">
           <li><a href="http://www.facebook.com"><img src="<?php bloginfo('stylesheet_directory');?>/images/fb.png"></li>
           <li><a href="http://www.instagram.com"><img src="<?php bloginfo('stylesheet_directory');?>/images/ig.png"></li>
           <li><a href="http://www.youtube.com"><img src="<?php bloginfo('stylesheet_directory');?>/images/u2.png"></li>
           <li><a href="http://www.twitter.com"><img src="<?php bloginfo('stylesheet_directory');?>/images/twit.png"></li>
         </ul>
-      </div>
-    </div> 
-
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-        <p>Copyright © 2016 Moda Miata. All rights reserved. Site designed by HebegebeStudio.<br>
-            <!-- insert horizontal line here? -->
+        <p> Copyright © 2016 Moda Miata. All rights reserved. Site designed by HebegebeStudio.<br>
             Obey all traffic laws and regulations when using your Moda Miata in public places.<br>
             Where a helmet and full protective clothing when operating your Moda Miata at the track.
-        </p>
-      </div>     
+        </p>   
+      </div>
+    </div> 
+          
+      
     </div>    
+  </div>
 
 </div>
 
