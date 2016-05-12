@@ -33,6 +33,105 @@
     color: #cee5e9;
   }  
 
+.nav-wheels input {
+    display: inline-block; 
+    border: 2px, color: #ccc;
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    -webkit-appearance: none;
+    margin: 10px;
+  }
+
+  .nav-wheels input:focus {
+    outline: 2px solid #fff;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 5px; 
+  }
+
+  .nav-interior input {
+    display: inline-block; 
+    border: 2px, color: #ccc;
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    -webkit-appearance: none;
+    margin: 10px;
+
+  }
+
+  .nav-interior input:focus {
+    outline: 2px solid #fff;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px; 
+  }
+
+
+
+  .nav-engines input {
+    display: inline-block; 
+    border: 2px, color: #ccc;
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    -webkit-appearance: none;
+    margin: 10px;
+
+  }
+  
+  .nav-engines input:focus {
+    outline: 2px solid #fff;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px; 
+  }
+
+  .packages {
+    width: 100%;
+
+  }
+
+
+  .btn-primary {
+    background-color: #000;
+    height: 50px;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+  }
+
+  .btn-primary button:hover { 
+    background-color: #ccc;
+    font-color: #ddfa22;
+    border: 1px;
+    border-color: #cee5e9;
+  }
+
+  .swatch {
+    float: left;
+    height: 50px;
+    width: 50px;
+    padding: 5px;
+  }
+
 #banner {
   width: 100%;
   height: 60px;
@@ -44,6 +143,7 @@
   position: absolute;
   margin-top: -15px;
   padding-left: 60px; 
+  z-index: 99;
 }
 
 input[type="radio"] {
@@ -86,7 +186,23 @@ input[type="radio"] {
   -moz-border-radius: 20px;
   border-radius: 20px;
   margin-top: 5px;
-  padding: 10px;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.black-box-social {
+  float: left;
+  width: 100%;
+  background-color: rgba(0,0,0, .75);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 5px;
+}
+
+.list-inline a {
+  margin: 20px;
 }
 
 .swatch {
@@ -167,7 +283,7 @@ input[type="radio"] {
     font-size: 16px;
 }
 */
-.social-box {
+/*.social-box {
   background-color: rgba(0,0,0, .75);
   display: inline-block; 
   border: 2px, color: #ccc;
@@ -181,7 +297,7 @@ input[type="radio"] {
   -webkit-appearance: none;
   margin-top: 10px;
 
-}
+}*/
 
 /*.social input:focus {
   outline: 2px solid #fff;
@@ -198,19 +314,6 @@ input[type="radio"] {
     /* Custom, iPhone Retina */ 
     @media only screen and (min-width : 320px) {
 
-        .banner {
-          width: 100%;
-          height: 40px;
-          background-color: #ddfa22;
-        }
-
-        .logo {
-          position: absolute;
-          margin-top: -15px;
-          padding-left: 30px; 
-          z-index: 99;
-        }
-
         h3 {
           font-family: 'Raleway', sans-serif;
           font-size: 12pt;
@@ -226,117 +329,10 @@ input[type="radio"] {
           line-height: 70px;
           margin-right: 10px;
         }
+
+
         
-         .nav-wheels input {
-          display: inline-block; 
-          border: 2px, color: #ccc;
-          width: 50px;
-          height: 50px;
-          -webkit-border-radius: 10px;
-          -moz-border-radius: 10px;
-          border-radius: 10px;
-          appearance: none;
-          box-shadow: none;
-          border-radius: none;
-          -webkit-appearance: none;
-          margin: 5px;
-        }
-
-        .nav-wheels input:focus {
-          outline: 2px solid #fff;
-          -webkit-border-radius: 20px;
-          -moz-border-radius: 20px;
-          border-radius: 5px; 
-        }
-
-        .nav-interior input {
-          display: inline-block; 
-          border: 2px, color: #ccc;
-          width: 50px;
-          height: 50px;
-          -webkit-border-radius: 20px;
-          -moz-border-radius: 20px;
-          border-radius: 20px;
-          appearance: none;
-          box-shadow: none;
-          border-radius: none;
-          -webkit-appearance: none;
-          margin: 5px;
-
-        }
-
-        .nav-interior input:focus {
-          outline: 2px solid #fff;
-          -webkit-border-radius: 20px;
-          -moz-border-radius: 20px;
-          border-radius: 20px; 
-        }
-
-
-
-        .nav-engines input {
-          display: inline-block; 
-          border: 2px, color: #ccc;
-          width: 50px;
-          height: 50px;
-          -webkit-border-radius: 20px;
-          -moz-border-radius: 20px;
-          border-radius: 20px;
-          appearance: none;
-          box-shadow: none;
-          border-radius: none;
-          -webkit-appearance: none;
-          margin: 5px;
-
-        }
-        
-        .nav-engines input:focus {
-          outline: 2px solid #fff;
-          -webkit-border-radius: 20px;
-          -moz-border-radius: 20px;
-          border-radius: 20px; 
-        }
-
-        .packages {
-          width: 100%;
-
-        }
-
-
-        .btn-primary {
-          background-color: #000;
-          height: 50px;
-          padding: 10px;
-          text-align: center;
-          vertical-align: middle;
-          border: none;
-        }
-
-        .btn-primary button:hover { 
-          background-color: #ccc;
-          font-color: #ddfa22;
-          border: 1px;
-          border-color: #cee5e9;
-        }
-
-      
-
-        .black-box-packages {
-          float: left;
-          width: 100%;
-          background-color: rgba(0,0,0, .75);
-          padding: 5px;
-          margin-top: 5px;
-        }
-
-        .swatch {
-          float: left;
-          height: 50px;
-          width: 50px;
-          padding: 5px;
-        }
-      }
-
+         
     /* Extra Small Devices, Phones */ 
     @media only screen and (min-width : 480px) {
 
@@ -347,7 +343,16 @@ input[type="radio"] {
           color: #cee5e9;
         }
 
-      
+        .list-inline a {
+           margin: 5px;
+        }
+
+        .logo {
+          position: absolute;
+          margin-top: -15px;
+          padding-left: 30px; 
+          z-index: 99;
+        }
 
         .black-box-packages {
           float: left;

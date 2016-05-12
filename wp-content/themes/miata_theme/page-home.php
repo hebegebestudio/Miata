@@ -1,3 +1,5 @@
+<form action="" method='post'>
+
 <?php 
 
 if(isset($_POST['submit'])) {
@@ -57,9 +59,30 @@ Template Name: Home Page
 
 
     });
+
+    //submits form to process.php and returns "Thanks" greeting
+     $(function() {
+      $("button#submit").click(function(){
+              $.ajax({
+            type: "POST",
+        url: "process.php",
+        data: $('form.contact').serialize(),
+              success: function(msg){
+                      $("#thanks").html(msg)
+                $("#form-content").modal('hide'); 
+                },
+        error: function(){
+          alert("failure");
+          }
+              });
+      });
+});
+
  </script>
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+  
 
 <form action="" method="post">
 
@@ -118,28 +141,6 @@ Template Name: Home Page
           </div>
       </div>
 
-
-    <div class="col-xs-12 col-md-6 black-box">
-      <div class="row">
-        <div class="col-xs-12 col-sm-3 text-center ">
-          <h3>Interior Colors</h3>
-        </div>  
-        <div class="col-xs-12 col-sm-8">
-          <ul class="nav-interior">
-            <?php 
-
-            $args = array('post_type' => 'interior');
-            $interiors = New wp_query($args);
-            if ($interiors->have_posts()) : while ($interiors->have_posts()) : $interiors->the_post(); ?>
-              <input type="radio" name="interior" id="a<?php the_id();?>" style="background-image: url(<?php echo the_field('thumbnail');?>)" data-picture="<?php echo the_field('image');?>">
-
-
-            <?php endwhile; endif; ?>
-          </ul>
-        </div>
-      </div>
-    </div>
-    
     <!-- -->
     <div class="col-xs-12 col-md-6 black-box">
 
@@ -184,9 +185,29 @@ Template Name: Home Page
       </div>
     </div>
   </div>
-
-
     <div class="col-xs-12 col-md-6 black-box">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 text-center ">
+          <h3>Interior Colors</h3>
+        </div>  
+        <div class="col-xs-12 col-sm-8">
+          <ul class="nav-interior">
+            <?php 
+
+            $args = array('post_type' => 'interior');
+            $interiors = New wp_query($args);
+            if ($interiors->have_posts()) : while ($interiors->have_posts()) : $interiors->the_post(); ?>
+              <input type="radio" name="interior" id="a<?php the_id();?>" style="background-image: url(<?php echo the_field('thumbnail');?>)" data-picture="<?php echo the_field('image');?>">
+
+
+            <?php endwhile; endif; ?>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="col-xs-12 col-sm-6 black-box">
       <div class="row">
         <div class="col-xs-12 col-sm-3 text-center">
           <h3>Packages</h3>
@@ -215,7 +236,53 @@ Template Name: Home Page
     </div>
 </div>
 
-    <!-- Submit button, get it working -->     
+
+<!-- Modal -->
+<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+<!-- <div id="submit"><p><a data-toggle="modal" href="#form-content" class="btn btn-primary">SUBMIT</a></p></div> -->
+  <!-- model content -->  
+  <div id="form-content" class="modal hide fade in" style="display: none; ">
+          <div class="modal-header">
+                <a class="close" data-dismiss="modal">×</a>
+                <h3>Make my Miata Moda!</h3>
+          </div>
+    <div>
+      <form class="contact">
+      <fieldset>
+             <div class="modal-body">
+               <ul class="nav nav-list">
+        <li class="nav-header">Name</li>
+        <li><input class="input-xlarge" value=" What do we call you?" type="text" name="Name"></li>
+        <li class="nav-header">Email</li>
+        <li><input class="input-xlarge" value=" Where do call you?" type="text" name="Email"></li>
+        <li class="nav-header">Message</li>
+        <li><textarea class="input-xlarge" name="sug" rows="3">
+        </textarea></li>
+        </ul> 
+            </div>
+      </fieldset>
+      </form>
+    </div>
+       <div class="modal-footer">
+           <button class="btn btn-success" id="submit">Submit</button>
+           <a href="#" class="btn" data-dismiss="modal">Reset</a>
+      </div>
+  </div>
+</div>  
+  <!-- Process code to submit info from Modal to WP -->
+  <!--?php
+      if (isset($_POST['name'])) {
+      $name = strip_tags($_POST['name']);
+      $email = strip_tags($_POST['Email']);
+      $sug = strip_tags($_POST['sug']);
+      echo "Name    =".$name."</br>"; 
+      echo "Email   =".$email."</br>";  
+      echo "Message   =".$sug."</br>";  
+      // echo "<span class="label label-info" >your message has been submitted .. Thanks you</span>";
+  }?-->
+
+<!-- Submit button, get it working     
   <div class="col-xs-12 col-md-6 submit">
     <div class="row">
         <div class="col-xs-6, col-sm-3">
@@ -226,38 +293,19 @@ Template Name: Home Page
         </div>
       </div>
     </div>
-  </div>    
+  </div>  -->   
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
 
-</div>
-
-  <div class="col-xs-12 col-md-6 black-box">
+  <div class="col-xs-12 col-md-12 black-box-social">
     <div class="row">
 
       <div class="col-xs-12 text-center">
         <ul class="list-inline">
-          <li><a href="http://www.facebook.com"><img src="<?php bloginfo('stylesheet_directory');?>/images/fb.png"></li>
-          <li><a href="http://www.instagram.com"><img src="<?php bloginfo('stylesheet_directory');?>/images/ig.png"></li>
-          <li><a href="http://www.youtube.com"><img src="<?php bloginfo('stylesheet_directory');?>/images/u2.png"></li>
-          <li><a href="http://www.twitter.com"><img src="<?php bloginfo('stylesheet_directory');?>/images/twit.png"></li>
+          <li><a href="http://www.facebook.com" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/fb.png"></li>
+          <li><a href="http://www.instagram.com" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/ig.png"></li>
+          <li><a href="http://www.youtube.com" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/u2.png"></li>
+          <li><a href="http://www.twitter.com" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/twit.png"></li>
         </ul>
         <p> Copyright © 2016 Moda Miata. All rights reserved. Site designed by HebegebeStudio.<br>
             Obey all traffic laws and regulations when using your Moda Miata in public places.<br>
@@ -273,3 +321,5 @@ Template Name: Home Page
 </div>
 
 <?php endwhile; endif; get_footer(); ?>
+
+</form>
