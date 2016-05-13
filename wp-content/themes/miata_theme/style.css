@@ -68,7 +68,6 @@
     border-radius: none;
     -webkit-appearance: none;
     margin: 10px;
-
   }
 
   .nav-interior input:focus {
@@ -180,7 +179,7 @@ input[type="radio"] {
 
 }
 
-.black-box {    
+.black-box {   
   background-color: rgba(0,0,0, .75);
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -214,6 +213,7 @@ input[type="radio"] {
 
 .container {
 	position: relative;
+  width: 95%;
   overflow: hidden; 
 	-webkit-transition: width 2s; /* Safari */
   transition: width 2s;
@@ -354,7 +354,7 @@ input[type="radio"] {
           z-index: 99;
         }
 
-        .black-box-packages {
+        .black-box-social {
           float: left;
           width: 100%;
           background-color: rgba(0,0,0, .75);
@@ -423,6 +423,10 @@ input[type="radio"] {
         }
     }
 
+
+.color input {
+  display: none;
+}
 
 
 
