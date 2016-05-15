@@ -1,5 +1,5 @@
 /**
-  Theme Name: Miatas Theme
+  Theme Name: Miata Theme
   Version: 1
   Author: Robert Sliger, who is not Trevor
 */
@@ -140,9 +140,13 @@
 
 .logo {
   position: absolute;
-  margin-top: -15px;
-  padding-left: 60px; 
   z-index: 99;
+}
+
+.logo img {
+  max-height: 75px;
+  padding-left: 20px; 
+  margin-top: 10px;
 }
 
 input[type="radio"] {
@@ -158,8 +162,8 @@ input[type="radio"] {
   overflow: hidden; 
 
 }
-.colors input {
-  display: inline-block; 
+.color input {
+  display: none; 
   width: 50px;
   height: 50px;
   -webkit-border-radius: 20px;
@@ -172,12 +176,12 @@ input[type="radio"] {
   margin: 10px;
 
 }
-.colors input:focus {
+
+/*.color input:focus {
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px; 
-
-}
+}*/
 
 .black-box {   
   background-color: rgba(0,0,0, .75);
@@ -272,41 +276,6 @@ input[type="radio"] {
 
 }
 
-/*.reset {
-    background-color: #000; 
-    border: 5px;
-    color: #cee5e9;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-*/
-/*.social-box {
-  background-color: rgba(0,0,0, .75);
-  display: inline-block; 
-  border: 2px, color: #ccc;
-  width: 100%;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  appearance: none;
-  box-shadow: none;
-  border-radius: none;
-  -webkit-appearance: none;
-  margin-top: 10px;
-
-}*/
-
-/*.social input:focus {
-  outline: 2px solid #fff;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px; 
-
-}*/
-
   /* PUT CRAZY DOWN HERE ======================================== */
 
 
@@ -350,7 +319,7 @@ input[type="radio"] {
         .logo {
           position: absolute;
           margin-top: -15px;
-          padding-left: 30px; 
+          padding-left: 15px; 
           z-index: 99;
         }
 
@@ -362,7 +331,7 @@ input[type="radio"] {
           margin-top: 10px;
         }
 
-        .colors input {
+        .color input {
           display: inline-block; 
           border: 2px, color: #ccc;
           width: 50px;
@@ -377,7 +346,7 @@ input[type="radio"] {
           margin: 5px;
 
         }
-        .colors input:focus {
+        .color input:focus {
           outline: 2px solid #ccc;
           -webkit-border-radius: 20px;
           -moz-border-radius: 20px;
@@ -420,6 +389,12 @@ input[type="radio"] {
 
         h3 {
           font-size: 22pt;
+        }
+
+        .logo img {
+          max-height: 150px;
+          padding-left: 60px; 
+          margin-top: 0px;
         }
     }
 

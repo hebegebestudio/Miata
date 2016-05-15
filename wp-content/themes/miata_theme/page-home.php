@@ -141,14 +141,14 @@ if(isset($gender)){
 
       <div class="col-xs-12 text-center">
         <ul class="list-inline">
-          <li><a href="http://www.facebook.com" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/fb.png"></a></li>
-          <li><a href="http://www.instagram.com" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/ig.png"></a></li>
-          <li><a href="http://www.youtube.com" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/u2.png"></a></li>
+          <li><a href="https://www.facebook.com/Moda-Miata-1730043273905923/" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/fb.png"></a></li>
+          <li><a href="https://www.instagram.com/hebegebestudio/" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/ig.png"></a></li>
+          <li><a href="https://www.youtube.com/watch?v=syIaA_YcaGg" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/u2.png"></a></li>
           <li><a href="http://www.twitter.com" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/twit.png"></a></li>
         </ul>
-        <p> Copyright © 2016 Moda Miata. All rights reserved. Site designed by HebegebeStudio.<br>
+        <p> Copyright © 2016 Moda Miata. All rights reserved. Site by HebegebeStudio.<br>
             Obey all traffic laws and regulations when using your Moda Miata in public places.<br>
-            Where a helmet and full protective clothing when operating your Moda Miata at the track.
+            Always wear a helmet and full protective clothing when operating your Moda Miata at the track.
         </p>   
       </div>
     </div> 

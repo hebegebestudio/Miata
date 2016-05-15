@@ -268,7 +268,7 @@ if(isset($exterior)){
 
       <div class="col-xs-12 text-center">
         <ul class="list-inline">
-          <li><a href="http://www.facebook.com" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/fb.png"></a></li>
+          <li><a href="https://www.facebook.com/Moda-Miata-1730043273905923/" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/fb.png"></a></li>
           <li><a href="http://www.instagram.com" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/ig.png"></a></li>
           <li><a href="http://www.youtube.com" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/u2.png"></a></li>
           <li><a href="http://www.twitter.com" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/twit.png"></a></li>
