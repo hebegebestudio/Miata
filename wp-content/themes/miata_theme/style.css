@@ -162,8 +162,8 @@ input[type="radio"] {
   overflow: hidden; 
 
 }
-.color input {
-  display: none; 
+.color  {
+  display: inline-block; 
   width: 50px;
   height: 50px;
   -webkit-border-radius: 20px;
@@ -205,7 +205,7 @@ input[type="radio"] {
 }
 
 .list-inline a {
-  margin: 20px;
+  margin: 40px;
 }
 
 .swatch {

@@ -1,79 +1,57 @@
 <?php 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+if(isset($_POST['submit'])) {
+  echo $_POST['exterior'];
+}
 get_header();
 /*
-Template Name: Calculate Page
+Template Name: Home Page
 */
-
-if(isset($_POST['submit'])){
-  $gender = $_POST['gender'];
-}
 ?>
+
+
  <script>
   //color swap for car
-$(function(){
-
-      $('.color').click( function(){
+  $(function(){
+      $('.colors input').click( function(){
            var color = $(this).attr('data-color');
            $('#overlay').css('fill',color);
-           $(this).find("input").attr('checked', true).trigger('click');
       });
-
-      $('.nav-interior div').click(function(){
+      $('.nav-interior input').click(function(){
         var image = $(this).attr('data-picture');
         $('.interior').empty();
         $('.interior').append('<img src="'+image+'">');
-        $(this).find("input").attr('checked', true).trigger('click');
       });
-
-      $('.nav-wheels div').click(function(){
+      $('.nav-wheels input').click(function(){
         var image = $(this).attr('data-picture');
         $('.wheels').empty();
         $('.wheels').append('<img src="'+image+'">');
-        $(this).find("input").attr('checked', true).trigger('click');
       });
-
-      $('.nav-engines div').click(function(){
-        $(this).find("input").attr('checked', true).trigger('click');
-      });
-
-
       // Select package
       $('.packages a').click(function(){
         var wheels = $(this).attr('data-wheels');
         $('#a'+wheels).attr('checked', true).trigger('click');
-
         var exterior = $(this).attr('data-exterior');
         $('#a'+exterior).attr('checked', true).trigger('click');
-
         var interior = $(this).attr('data-interior');
         $('#a'+interior).attr('checked', true).trigger('click');
-
         var engine = $(this).attr('data-engine');
         $('#a'+engine).attr('checked', true).trigger('click');
       });
+    });
+ </script>
 
-});
-</script>
-  
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-<form class="form-horizontal" action="" method="POST">
+<form action="" method="post">
 
 <div class="container">
 
-<?php 
-if(isset($gender)){
-  echo '<div class="alert alert-success"> exterior is '.$gender.'</div>';
-}
-?>
 
       <div class="interior"></div>
       <div class="wheels"></div>
-
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 1024 449">
     <g style="isolation:isolate">
-    <g id="car" data-name="car"><image width="100%" height="100%" z-index='1' xlink:href="<?php bloginfo('stylesheet_directory');?>/images/Miata-Overlay.png"/>
+    <g id="car" data-name="car"><image width="100%" height="100%" xlink:href="<?php bloginfo('stylesheet_directory');?>/images/Miata-Overlay.png"/>
      </g>
     
     <path id="overlay" d="M861.15,231l-2.82,2c5.85,2.89,11.88,6.45,14.67,
@@ -93,75 +71,148 @@ if(isset($gender)){
 
     </g>
   </svg>
-
-   <div class="row">
   
 
-    <div class="col-xs-12 col-md-6 black-box">
-
+      <div class="black-box">
           <div class="row">
             <div class="col-xs-12 col-sm-3 text-center">
               <h3>Exterior Colors</h3>
             </div>
             <div class="col-xs-12 col-sm-8">
+              <ul class="colors">
                 <?php 
-
                 $args = array('post_type' => 'exterior');
                 $exteriors = New wp_query($args);
                 if ($exteriors->have_posts()) : while ($exteriors->have_posts()) : $exteriors->the_post(); ?>
         
-                <div class="color" style="background-color:<?php echo the_field('color');?>" data-color="<?php echo the_field('color');?>">
-                
-                <input type="radio" name="gender" value="<?php the_id();?>"><?php the_title();?>
-                
-                </div>
+                <input type="radio" name="exterior" id="a<?php the_id();?>" style="background-color:<?php echo the_field('color');?>" data-color="<?php echo the_field('color');?>">
                
                 <?php endwhile; endif; ?>
 
+              </ul> 
             </div>
           </div>
       </div>
 
-   
+
+    <div class="black-box">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 text-center">
+          <h3>Interior Colors</h3>
+        </div>  
+        <div class="col-xs-12 col-sm-8">
+          <ul class="nav-interior">
+            <?php 
+            $args = array('post_type' => 'interior');
+            $interiors = New wp_query($args);
+            if ($interiors->have_posts()) : while ($interiors->have_posts()) : $interiors->the_post(); ?>
+              <input type="radio" name="interior" id="a<?php the_id();?>" style="background-image: url(<?php echo the_field('thumbnail');?>)" data-picture="<?php echo the_field('image');?>">
 
 
-
-
+            <?php endwhile; endif; ?>
+          </ul>
+        </div>
+      </div>
+    </div>
     
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      <!-- <button type="submit" name="submit" class="btn btn-primary">Submit</button> -->
-      <button type="submit" name="submit" class="btn btn-success">Submit</button>
+    <!-- -->
+    <div class="black-box">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 text-center">
+          <h3>Wheels</h3>
+        </div>  
+        <div class="col-xs-12 col-sm-8"> 
+          <ul class="nav-wheels">
+              <?php 
+            $args = array('post_type' => 'wheels');
+            $wheels = New wp_query($args);
+            if ($wheels->have_posts()) : while ($wheels->have_posts()) : $wheels->the_post(); ?>
+              <input type="radio" name="wheels" id="a<?php the_id();?>" style="background-image: url(<?php echo the_field('thumbnail');?>)" data-picture="<?php echo the_field('image');?>">
+
+           <?php endwhile; endif; ?>
+          </ul>
+        </div>
+      </div>
+    </div>
 
 
+    <div class="black-box">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 text-center">
+          <h3>Powertrains</h3>
+        </div>  
+        <div class="col-xs-12 col-sm-8">        
+        <ul class="nav-engines">
+          <?php 
+            $args = array('post_type' => 'engine');
+            $engine = New wp_query($args);
+            if ($engine->have_posts()) : while ($engine->have_posts()) : $engine->the_post(); ?>
+              <input type="radio" name="engine" id="a<?php the_id();?>" style="background-image: url(<?php echo the_field('thumbnail');?>)">
 
 
-
-  <div class="col-xs-12 col-md-12 black-box-social">
-    <div class="row">
-
-      <div class="col-xs-12 text-center">
-        <ul class="list-inline">
-          <li><a href="https://www.facebook.com/Moda-Miata-1730043273905923/" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/fb.png"></a></li>
-          <li><a href="https://www.instagram.com/hebegebestudio/" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/ig.png"></a></li>
-          <li><a href="https://www.youtube.com/watch?v=syIaA_YcaGg" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/u2.png"></a></li>
-          <li><a href="http://www.twitter.com" target="blank"><img src="<?php bloginfo('stylesheet_directory');?>/images/twit.png"></a></li>
+           <?php endwhile; endif; ?>
         </ul>
-        <p> Copyright © 2016 Moda Miata. All rights reserved. Site by HebegebeStudio.<br>
-            Obey all traffic laws and regulations when using your Moda Miata in public places.<br>
-            Always wear a helmet and full protective clothing when operating your Moda Miata at the track.
-        </p>   
+      </div>
+    </div>
+  </div>
+
+
+    <div class="black-box-packages">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 text-center">
+          <h3>Packages</h3>
+        </div>  
+        <div class="col-xs-12 col-sm-8">
+        <ul class="packages">
+          <?php 
+          $args = array('post_type' => 'package');
+          $packages = New wp_query($args);
+          if ($packages->have_posts()) : while ($packages->have_posts()) : $packages->the_post(); ?>
+  
+          <a class="btn btn-primary"
+            data-wheels="<?php the_field('wheels');?>"
+            data-exterior="<?php the_field('exterior');?>"
+            data-interior="<?php the_field('interior');?>"
+            data-engine="<?php the_field('engine');?>"
+            >
+            <?php the_title();?>
+          </a>
+
+          <?php endwhile; endif; ?>
+
+        </ul> 
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- Submit button, get it working -->
+  <div class="black-box-social">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <ul class="list-inline">
+          <li><a href="http://www.facebook.com"><img src="<?php bloginfo('stylesheet_directory');?>/images/fb.png"></li>
+          <li><a href="http://www.instagram.com"><img src="<?php bloginfo('stylesheet_directory');?>/images/ig.png"></li>
+          <li><a href="http://www.youtube.com"><img src="<?php bloginfo('stylesheet_directory');?>/images/u2.png"></li>
+          <li><a href="http://www.twitter.com"><img src="<?php bloginfo('stylesheet_directory');?>/images/twit.png"></li>
+        </ul>
       </div>
     </div> 
-                
-    </div>  
 
-
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+        <p>Copyright © 2016 Moda Miata. All rights reserved. Site designed by HebegebeStudio.<br>
+            <!-- insert horizontal line here? -->
+            Obey all traffic laws and regulations when using your Moda Miata in public places.<br>
+            Where a helmet and full protective clothing when operating your Moda Miata at the track.
+        </p>
+      </div>     
+    </div>    
   </div>
 
 </div>
 
-</form>
+  
 
-</div>
-<?php get_footer(); ?>
-
+<?php endwhile; endif; get_footer(); ?>
