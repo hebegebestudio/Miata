@@ -2,11 +2,8 @@
 /*
 Template Name: Calculate Page
 */
-
-if(isset($_POST['submit'])){
-  $exterior = $_POST['exterior'];
-}
 ?>
+
  <script>
   //color swap for car
 $(function(){
@@ -58,7 +55,7 @@ $(function(){
 </script>
   
 
-<form class="form-horizontal" action="" method="POST">
+<form class="form-horizontal" action="<?php bloginfo('stylesheet_directory');?>/page-process.php" method="POST">
 
 <div class="container">
 
@@ -119,9 +116,6 @@ if(isset($exterior)){
 
 
 
-
-
-
     <div class="col-xs-12 col-sm-6 black-box">
       <div class="row">
         <div class="col-xs-12 col-sm-4 text-center">
@@ -132,7 +126,7 @@ if(isset($exterior)){
             $args = array('post_type' => 'wheels');
             $wheels = New wp_query($args);
             if ($wheels->have_posts()) : while ($wheels->have_posts()) : $wheels->the_post(); ?>
-              <input type="radio" name="wheels" id="a<?php the_id();?>" style="background-image: url(<?php echo the_field('thumbnail');?>)" class="nav-wheels" data-picture="<?php echo the_field('image');?>">
+              <input type="radio" name="wheels" id="a<?php the_id();?>" value="<?php the_id();?>" style="background-image: url(<?php echo the_field('thumbnail');?>)" class="nav-wheels" data-picture="<?php echo the_field('image');?>">
               <?php endwhile; endif; ?>
         </div>
       </div>
@@ -149,7 +143,7 @@ if(isset($exterior)){
             $args = array('post_type' => 'engine');
             $engine = New wp_query($args);
             if ($engine->have_posts()) : while ($engine->have_posts()) : $engine->the_post(); ?>
-              <input class="nav-engines" style="background-image: url(<?php echo the_field('thumbnail');?>)" type="radio" name="engine" id="a<?php the_id();?>" >
+              <input class="nav-engines" value="<?php the_id();?>" style="background-image: url(<?php echo the_field('thumbnail');?>)" type="radio" name="engine" id="a<?php the_id();?>" >
            <?php endwhile; endif; ?>
       </div>
     </div>
@@ -168,7 +162,7 @@ if(isset($exterior)){
             $interiors = New wp_query($args);
             if ($interiors->have_posts()) : while ($interiors->have_posts()) : $interiors->the_post(); ?>
             <div >
-              <input class="nav-interior" type="radio" name="interior" id="a<?php the_id();?>" style="background-image: url(<?php echo the_field('thumbnail');?>)" data-picture="<?php echo the_field('image');?>"> 
+              <input class="nav-interior" value="<?php the_id();?>" type="radio" name="interior" id="a<?php the_id();?>" style="background-image: url(<?php echo the_field('thumbnail');?>)" data-picture="<?php echo the_field('image');?>"> 
             </div>
             <?php endwhile; endif; ?>
         </div>
@@ -218,15 +212,15 @@ if(isset($exterior)){
 
         <div class="form-group">
             <label for="Name">Name</label>
-            <input class="input-xlarge" value="" placeholder="What do we call you?" type="text" name="Name">
+            <input class="input-xlarge" value="" placeholder="What do we call you?" type="text" name="name">
          </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input id="email" class="input-xlarge" value="" placeholder="Where do call you?" type="text" name="Email"></li>
+            <input id="email" class="input-xlarge" value="" placeholder="Where do call you?" type="text" name="email"></li>
         </div>
         <div class="form-group">    
             <label for="message">Message</label>
-            <textarea class="input-xlarge" name="sug" id="message" rows="3"></textarea>
+            <textarea class="input-xlarge" name="message" id="message" rows="3"></textarea>
          </div>
       </div>
       <div class="modal-footer">
@@ -243,7 +237,7 @@ if(isset($exterior)){
 
 
 
-<!--   <div class="col-xs-12 col-md-12 black-box-social">
+  <div class="col-xs-12 col-md-12 black-box-social">
     <div class="row">
 
       <div class="col-xs-12 text-center">
@@ -260,13 +254,17 @@ if(isset($exterior)){
         </p>   
       </div>
     </div> 
-    </div>   -->
-
+    </div>   
 
   </div>
 </div>
 </form>
 
 </div>
+
+
+
+
+
 <?php get_footer(); ?>
 
