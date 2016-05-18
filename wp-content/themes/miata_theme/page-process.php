@@ -13,51 +13,58 @@ if(isset($_POST['submit'])){
   $message = $_POST['message'];
 
 // the message
-$content = $message.' | '.$exterior.' | '.$interior;
+<h2>
+$content = $message.'  '.$exterior.'  '.$interior.' '.$engine.''.$wheels.'';
+</h2>
 
 // send email
-//make sure to change the email
 mail("robert@hebegebes.com", "Make a new car", $content);
 
 
 get_header();
 ?>
 
- <div class="well"> 
+ <div class="black-box"> 
+  <h3>
+  Name: <?php echo $name; ?> <br>
+  Email: <?php echo $email; ?><br>
+  Message: <?php echo $message; ?><br>
+  </h3>
 
-Name: <?php echo $name; ?> <br>
-Email: <?php echo $email; ?><br>
-Message: <?php echo $message; ?><br>
-
-<?php
-$args = array('post_type' => 'exterior', 'p' => $exterior);
-$exteriors = New wp_query($args);
-if ($exteriors->have_posts()) : while ($exteriors->have_posts()) : $exteriors->the_post(); ?>
-  <?php the_title();?> <br>
-<?php endwhile; endif; 
-
-
-$args = array('post_type' => 'wheels', 'p' => $wheels);
-$wheels = New wp_query($args);
-if ($wheels->have_posts()) : while ($wheels->have_posts()) : $wheels->the_post(); ?>
-  <?php the_title();?><br>
-<?php endwhile; endif; 
+  <?php
+  $args = array('post_type' => 'exterior', 'p' => $exterior);
+  $exteriors = New wp_query($args);
+  if ($exteriors->have_posts()) : while ($exteriors->have_posts()) : $exteriors->the_post(); ?>
+    <?php the_title();?> <br>
+  <?php endwhile; endif; 
 
 
-$args = array('post_type' => 'engine', 'p' => $engine);
-$engine = New wp_query($args);
-if ($engine->have_posts()) : while ($engine->have_posts()) : $engine->the_post(); ?>
-  <?php the_title();?><br>
-<?php endwhile; endif; 
+  $args = array('post_type' => 'wheels', 'p' => $wheels);
+  $wheels = New wp_query($args);
+  if ($wheels->have_posts()) : while ($wheels->have_posts()) : $wheels->the_post(); ?>
+    <?php the_title();?><br>
+  <?php endwhile; endif; 
 
 
-$args = array('post_type' => 'interior', 'p' => $interior);
-$interiors = New wp_query($args);
-if ($interiors->have_posts()) : while ($interiors->have_posts()) : $interiors->the_post(); ?>
-  <?php the_title();?><br>
-<?php endwhile; endif; 
-?>
+  $args = array('post_type' => 'engine', 'p' => $engine);
+  $engine = New wp_query($args);
+  if ($engine->have_posts()) : while ($engine->have_posts()) : $engine->the_post(); ?>
+    <?php the_title();?><br>
+  <?php endwhile; endif; 
 
+
+  $args = array('post_type' => 'interior', 'p' => $interior);
+  $interiors = New wp_query($args);
+  if ($interiors->have_posts()) : while ($interiors->have_posts()) : $interiors->the_post(); ?>
+    <?php the_title();?><br>
+  <?php endwhile; endif; 
+  ?>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <a href="<?php bloginfo('url');?>/miatas/>" class="btn btn-primary" role="button">Return to Main Page</a>
+  </div>
 </div>
 
 <?php
@@ -68,3 +75,4 @@ get_footer();
   header("Location: http://localhost/miatas"); /* Redirect browser */
   exit();
 }
+

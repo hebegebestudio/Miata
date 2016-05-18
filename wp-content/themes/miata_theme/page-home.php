@@ -108,6 +108,7 @@ if(isset($exterior)){
         
                 <input class="color" style="background-color:<?php echo the_field('color');?>" data-color="<?php echo the_field('color');?>" type="radio" id="a<?php the_id();?>" name="exterior" value="<?php the_id();?>"> <span class="sr-only"><?php the_title();?></span>
 
+
                 <?php endwhile; endif; ?>
             </div>
           </div>
