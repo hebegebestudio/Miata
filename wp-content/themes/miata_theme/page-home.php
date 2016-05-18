@@ -94,10 +94,10 @@ if(isset($exterior)){
    <div class="row">
   
 
-    <div class="col-xs-12 col-md-6 black-box">
+    <div class="col-xs-12 col-sm-6 black-box">
 
           <div class="row">
-            <div class="col-xs-12 col-sm-3 text-center">
+            <div class="col-xs-12 col-sm-4 text-center">
               <h3>Exterior Colors</h3>
             </div>
             <div class="col-xs-12 col-sm-8">
@@ -120,10 +120,10 @@ if(isset($exterior)){
       </div>
 
     <!-- -->
-    <div class="col-xs-12 col-md-6 black-box">
+    <div class="col-xs-12 col-sm-6 black-box">
 
       <div class="row">
-        <div class="col-xs-12 col-sm-3 text-center">
+        <div class="col-xs-12 col-sm-4 text-center">
           <h3>Wheels</h3>
         </div>  
         <div class="col-xs-12 col-sm-8"> 
@@ -137,17 +137,17 @@ if(isset($exterior)){
               <input type="radio" name="wheels" id="a<?php the_id();?>">
             </div>  
 
-           <?php endwhile; endif; ?>
+              <?php endwhile; endif; ?>
           </ul>
         </div>
       </div>
     </div>
 
 
-  <div class="col-xs-12 col-md-6 black-box">
+  <div class="col-xs-12 col-sm-6 black-box">
 
       <div class="row">
-        <div class="col-xs-12 col-sm-3 text-center">
+        <div class="col-xs-12 col-sm-4 text-center">
           <h3>Powertrains</h3>
         </div>  
         <div class="col-xs-12 col-sm-8">        
@@ -157,7 +157,7 @@ if(isset($exterior)){
             $args = array('post_type' => 'engine');
             $engine = New wp_query($args);
             if ($engine->have_posts()) : while ($engine->have_posts()) : $engine->the_post(); ?>
-            <div style="background-image: url(<?php echo the_field('thumbnail');?>)">
+            <div style="background-image: url(<?php echo the_field('thumbnail');?>)" image-repeat: "none">
               <input type="radio" name="engine" id="a<?php the_id();?>" >
             </div>
 
@@ -166,9 +166,9 @@ if(isset($exterior)){
       </div>
     </div>
   </div>
-    <div class="col-xs-12 col-md-6 black-box">
+    <div class="col-xs-12 col-sm-6 black-box">
       <div class="row">
-        <div class="col-xs-12 col-sm-3 text-center ">
+        <div class="col-xs-12 col-sm-4 text-center ">
           <h3>Interior Colors</h3>
         </div>  
         <div class="col-xs-12 col-sm-8">
@@ -191,11 +191,11 @@ if(isset($exterior)){
 
     <div class="col-xs-12 col-sm-6 black-box-social">
       <div class="row">
-        <div class="col-xs-12 col-sm-3 text-center">
+        <div class="col-xs-12 col-sm-4 text-center">
           <h3>Packages</h3>
         </div>  
         <div class="col-xs-12 col-sm-8">
-        <ul class="packages">
+        <ul>
           <?php 
 
           $args = array('post_type' => 'package');
@@ -222,8 +222,11 @@ if(isset($exterior)){
 <!-- Modal -->
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-contact">
-  Launch demo modal
+  SUBMIT
 </button>
+
+<a class="btn btn-primary btn-lg" role="button" href="<?php bloginfo('url');?>/contact/">CONTACT</a>
+
 
 <!-- Modal -->
 <div class="modal fade" id="modal-contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

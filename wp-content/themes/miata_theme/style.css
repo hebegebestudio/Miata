@@ -31,11 +31,20 @@
     font-size: 8pt;
     font-style: none;
     color: #cee5e9;
-  }  
+  } 
+
+.wheels {
+  position: absolute;
+  top: -1px;
+  z-index: 50;
+}
+
+.wheels img{
+  width:98%;
+}
 
 .nav-wheels input {
     display: inline-block; 
-    border: 2px, color: #ccc;
     width: 50px;
     height: 50px;
     -webkit-border-radius: 10px;
@@ -45,19 +54,20 @@
     box-shadow: none;
     border-radius: none;
     -webkit-appearance: none;
-    margin: 10px;
+    padding-left: 0px;
+    /*margin: 10px;*/
   }
 
-  .nav-wheels input:focus {
+
+.wheels input:focus {
     outline: 2px solid #fff;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 5px; 
   }
 
-  .nav-interior input {
+.nav-interior input {
     display: inline-block; 
-    border: 2px, color: #ccc;
     width: 50px;
     height: 50px;
     -webkit-border-radius: 20px;
@@ -67,21 +77,19 @@
     box-shadow: none;
     border-radius: none;
     -webkit-appearance: none;
-    margin: 10px;
+    padding: 0px;
+    /*margin: 10px;*/
   }
 
-  .nav-interior input:focus {
-    outline: 2px solid #fff;
+.interior input:focus {
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px; 
   }
 
 
-
-  .nav-engines input {
+.nav-engines input {
     display: inline-block; 
-    border: 2px, color: #ccc;
     width: 50px;
     height: 50px;
     -webkit-border-radius: 20px;
@@ -91,38 +99,49 @@
     box-shadow: none;
     border-radius: none;
     -webkit-appearance: none;
-    margin: 10px;
+    padding: 0px;
+    /*margin: 10px;*/
 
   }
   
-  .nav-engines input:focus {
+.engines input:focus {
     outline: 2px solid #fff;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px; 
   }
 
-  .packages {
+/*  .packages {
     width: 100%;
 
-  }
+  }*/
 
 
   .btn-primary {
     background-color: #000;
-    height: 50px;
+    border-color: #ccc;
     padding: 10px;
     text-align: center;
     vertical-align: middle;
-    border: none;
+    display: inline-block; 
+    width: 150px;
+    height: 50px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    -webkit-appearance: none;
+
   }
 
-  .btn-primary button:hover { 
-    background-color: #ccc;
-    font-color: #ddfa22;
-    border: 1px;
-    border-color: #cee5e9;
-  }
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
+    background: #ddfa22;
+    font-family: 'Raleway+800', sans-serif;
+    color: #000;
+    border: none;
+}
 
   .swatch {
     float: left;
@@ -200,13 +219,13 @@ input[type="radio"] {
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
-  padding: 20px;
+  padding: 10px;
   margin-top: 5px;
 }
 
-.list-inline a {
+/*.list-inline a {
   margin: 40px;
-}
+}*/
 
 .swatch {
   width: 75%;
@@ -223,17 +242,6 @@ input[type="radio"] {
   transition: width 2s;
 }
 
-.wheels {
-	position: absolute;
-	top:-1px;
-	left: 0px;
-  z-index: 50;
-}
-
-/*.wheels img{
-	width:99%;
-}*/
-
 .interior {
 	position: absolute;
 	top:-2px;
@@ -241,7 +249,7 @@ input[type="radio"] {
 }
 
 .interior img{
-  width: 100%;
+  width: 97%;
 }
 
 #overlay {
@@ -251,30 +259,6 @@ input[type="radio"] {
     margin:0px;
   }
 
-.button {
-    background-color: #000; 
-    border: 5px;
-    color: #cee5e9;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    display: inline-block; 
-    width: 200px;
-    height: 50px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-    appearance: none;
-    box-shadow: none;
-    border-radius: none;
-    -webkit-appearance: none;
-    margin-top: 10px;
-    margin-right: 50px;
-
-
-}
 
   /* PUT CRAZY DOWN HERE ======================================== */
 
@@ -312,6 +296,10 @@ input[type="radio"] {
           color: #cee5e9;
         }
 
+        .wheels img{
+          width:97%;
+        }
+
         .list-inline a {
            margin: 5px;
         }
@@ -327,7 +315,6 @@ input[type="radio"] {
           float: left;
           width: 100%;
           background-color: rgba(0,0,0, .75);
-          /*padding: 10px;*/
           margin-top: 10px;
         }
 
@@ -346,12 +333,31 @@ input[type="radio"] {
           margin: 5px;
 
         }
-        .color input:focus {
+
+        .btn-primary {
+          background-color: #000;
+          padding: 10px;
+          text-align: center;
+          font-size: 8pt;
+          vertical-align: middle;
+          display: inline-block; 
+          width: 200px;
+          height: 50px;
+          -webkit-border-radius: 20px;
+          -moz-border-radius: 20px;
+          border-radius: 20px;
+          appearance: none;
+          box-shadow: none;
+          border-radius: none;
+          -webkit-appearance: none;
+
+        }
+        /*.color input:focus {
           outline: 2px solid #ccc;
           -webkit-border-radius: 20px;
           -moz-border-radius: 20px;
           border-radius: 20px; 
-        }
+        }*/
     }
 
     /* Small Devices, Tablets */
@@ -362,6 +368,10 @@ input[type="radio"] {
           font-size: 18pt;
           font-style: none;
           color: #cee5e9;
+        }
+
+        .wheels img{
+          width:98%;
         }
 
 
@@ -389,6 +399,10 @@ input[type="radio"] {
 
         h3 {
           font-size: 22pt;
+        }
+
+        .wheels img{
+          width:98%;
         }
 
         .logo img {
