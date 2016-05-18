@@ -14,41 +14,44 @@ $(function(){
       $('.color').click( function(){
            var color = $(this).attr('data-color');
            $('#overlay').css('fill',color);
-           $(this).find("input").attr('checked', true).trigger('click');
+           $(this).attr('checked', true);
       });
 
-      $('.nav-interior div').click(function(){
-        var image = $(this).attr('data-picture');
-        $('.interior').empty();
-        $('.interior').append('<img src="'+image+'">');
-        $(this).find("input").attr('checked', true).trigger('click');
-      });
 
-      $('.nav-wheels div').click(function(){
+      $('.nav-wheels').click(function(){
         var image = $(this).attr('data-picture');
         $('.wheels').empty();
         $('.wheels').append('<img src="'+image+'">');
-        $(this).find("input").attr('checked', true).trigger('click');
+        $(this).find("input").attr('checked', true);
       });
 
-      $('.nav-engines div').click(function(){
-        $(this).find("input").attr('checked', true).trigger('click');
+
+      $('.nav-interior').click(function(){
+        var image = $(this).attr('data-picture');
+        $('.interior').empty();
+        $('.interior').append('<img src="'+image+'">');
+        $(this).find("input").attr('checked', true);
+      });
+
+
+      $('.nav-engines').click(function(){
+        $(this).find("input").attr('checked', true);
       });
 
 
       // Select package
       $('.packages a').click(function(){
         var wheels = $(this).attr('data-wheels');
-        $('#a'+wheels).attr('checked', true).trigger('click');
+        $('#a'+wheels).trigger('click');
 
         var exterior = $(this).attr('data-exterior');
-        $('#a'+exterior).attr('checked', true).trigger('click');
+        $('#a'+exterior).trigger('click');
 
         var interior = $(this).attr('data-interior');
-        $('#a'+interior).attr('checked', true).trigger('click');
+        $('#a'+interior).trigger('click');
 
         var engine = $(this).attr('data-engine');
-        $('#a'+engine).attr('checked', true).trigger('click');
+        $('#a'+engine).trigger('click');
       });
 
 });
@@ -72,7 +75,6 @@ if(isset($exterior)){
     <g style="isolation:isolate">
     <g id="car" data-name="car"><image width="100%" height="100%" z-index='1' xlink:href="<?php bloginfo('stylesheet_directory');?>/images/Miata-Overlay.png"/>
      </g>
-    
     <path id="overlay" d="M861.15,231l-2.82,2c5.85,2.89,11.88,6.45,14.67,
       9.58-4.61,4.3-19.05,5.93-20,6s-29.08-17.38-30-19c-1.07-1.61,16-4,16-4,0.31-.46,9.7,2.76,18.79,7.16l3-1.89A301.57,
       301.57,0,0,0,738,188.5c-30.45-3.71-77.26-1.26-107-3-6.57-.38-88.68,7.07-88,4,0.6-2.72,1-7,1-7a34.73,34.73,0,0,
@@ -91,117 +93,101 @@ if(isset($exterior)){
     </g>
   </svg>
 
+
+
+
+
    <div class="row">
-  
-
     <div class="col-xs-12 col-sm-6 black-box">
-
           <div class="row">
             <div class="col-xs-12 col-sm-4 text-center">
               <h3>Exterior Colors</h3>
             </div>
             <div class="col-xs-12 col-sm-8">
                 <?php 
-
                 $args = array('post_type' => 'exterior');
                 $exteriors = New wp_query($args);
                 if ($exteriors->have_posts()) : while ($exteriors->have_posts()) : $exteriors->the_post(); ?>
         
-                <div class="color" style="background-color:<?php echo the_field('color');?>" data-color="<?php echo the_field('color');?>">
-                
-                <input type="radio" id="a<?php the_id();?>" name="exterior" value="<?php the_id();?>"><?php the_title();?>
-                
-                </div>
-               
-                <?php endwhile; endif; ?>
+                <input class="color" style="background-color:<?php echo the_field('color');?>" data-color="<?php echo the_field('color');?>" type="radio" id="a<?php the_id();?>" name="exterior" value="<?php the_id();?>"> <span class="sr-only"><?php the_title();?></span>
 
+                <?php endwhile; endif; ?>
             </div>
           </div>
       </div>
 
-    <!-- -->
-    <div class="col-xs-12 col-sm-6 black-box">
 
+
+
+
+
+
+    <div class="col-xs-12 col-sm-6 black-box">
       <div class="row">
         <div class="col-xs-12 col-sm-4 text-center">
           <h3>Wheels</h3>
         </div>  
         <div class="col-xs-12 col-sm-8"> 
-          <ul class="nav-wheels">
               <?php 
-
             $args = array('post_type' => 'wheels');
             $wheels = New wp_query($args);
             if ($wheels->have_posts()) : while ($wheels->have_posts()) : $wheels->the_post(); ?>
-            <div style="background-image: url(<?php echo the_field('thumbnail');?>)" data-picture="<?php echo the_field('image');?>">
-              <input type="radio" name="wheels" id="a<?php the_id();?>">
-            </div>  
-
+              <input type="radio" name="wheels" id="a<?php the_id();?>" style="background-image: url(<?php echo the_field('thumbnail');?>)" class="nav-wheels" data-picture="<?php echo the_field('image');?>">
               <?php endwhile; endif; ?>
-          </ul>
         </div>
       </div>
     </div>
 
 
   <div class="col-xs-12 col-sm-6 black-box">
-
       <div class="row">
         <div class="col-xs-12 col-sm-4 text-center">
           <h3>Powertrains</h3>
         </div>  
         <div class="col-xs-12 col-sm-8">        
-        <ul class="nav-engines">
           <?php 
-
             $args = array('post_type' => 'engine');
             $engine = New wp_query($args);
             if ($engine->have_posts()) : while ($engine->have_posts()) : $engine->the_post(); ?>
-            <div style="background-image: url(<?php echo the_field('thumbnail');?>)" image-repeat: "none">
-              <input type="radio" name="engine" id="a<?php the_id();?>" >
-            </div>
-
+              <input class="nav-engines" style="background-image: url(<?php echo the_field('thumbnail');?>)" type="radio" name="engine" id="a<?php the_id();?>" >
            <?php endwhile; endif; ?>
-        </ul>
       </div>
     </div>
   </div>
+
+
+
     <div class="col-xs-12 col-sm-6 black-box">
       <div class="row">
         <div class="col-xs-12 col-sm-4 text-center ">
           <h3>Interior Colors</h3>
         </div>  
         <div class="col-xs-12 col-sm-8">
-          <ul class="nav-interior">
             <?php 
-
             $args = array('post_type' => 'interior');
             $interiors = New wp_query($args);
             if ($interiors->have_posts()) : while ($interiors->have_posts()) : $interiors->the_post(); ?>
-            <div style="background-image: url(<?php echo the_field('thumbnail');?>)" data-picture="<?php echo the_field('image');?>">
-              <input type="radio" name="interior" id="a<?php the_id();?>"> 
+            <div >
+              <input class="nav-interior" type="radio" name="interior" id="a<?php the_id();?>" style="background-image: url(<?php echo the_field('thumbnail');?>)" data-picture="<?php echo the_field('image');?>"> 
             </div>
-
             <?php endwhile; endif; ?>
-          </ul>
         </div>
       </div>
     </div>
     
+
+
 
     <div class="col-xs-12 col-sm-6 black-box-social">
       <div class="row">
         <div class="col-xs-12 col-sm-4 text-center">
           <h3>Packages</h3>
         </div>  
-        <div class="col-xs-12 col-sm-8">
-        <ul>
+        <div class="col-xs-12 col-sm-8 packages">
           <?php 
-
           $args = array('post_type' => 'package');
           $packages = New wp_query($args);
           if ($packages->have_posts()) : while ($packages->have_posts()) : $packages->the_post(); ?>
-  
           <a class="btn btn-primary"
             data-wheels="<?php the_field('wheels');?>"
             data-exterior="<?php the_field('exterior');?>"
@@ -210,25 +196,17 @@ if(isset($exterior)){
             >
             <?php the_title();?>
           </a>
-
           <?php endwhile; endif; ?>
-
-        </ul> 
       </div>
     </div>
 </div>
 
+
+
+
 <!-- Put Submit & Reset button in row and column here -->
-<!-- Modal -->
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-contact">
-  SUBMIT
-</button>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-contact">SUBMIT</button>
 
-<a class="btn btn-primary btn-lg" role="button" href="<?php bloginfo('url');?>/contact/">CONTACT</a>
-
-
-<!-- Modal -->
 <div class="modal fade" id="modal-contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -240,11 +218,11 @@ if(isset($exterior)){
 
         <div class="form-group">
             <label for="Name">Name</label>
-            <input class="input-xlarge" value=" What do we call you?" type="text" name="Name">
+            <input class="input-xlarge" value="" placeholder="What do we call you?" type="text" name="Name">
          </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input id="email" class="input-xlarge" value=" Where do call you?" type="text" name="Email"></li>
+            <input id="email" class="input-xlarge" value="" placeholder="Where do call you?" type="text" name="Email"></li>
         </div>
         <div class="form-group">    
             <label for="message">Message</label>
@@ -254,7 +232,6 @@ if(isset($exterior)){
       <div class="modal-footer">
 
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      <!-- <button type="submit" name="submit" class="btn btn-primary">Submit</button> -->
       <button type="submit" name="submit" class="btn btn-success">Submit</button>
 
       </div>
@@ -266,7 +243,7 @@ if(isset($exterior)){
 
 
 
-  <div class="col-xs-12 col-md-12 black-box-social">
+<!--   <div class="col-xs-12 col-md-12 black-box-social">
     <div class="row">
 
       <div class="col-xs-12 text-center">
@@ -283,14 +260,11 @@ if(isset($exterior)){
         </p>   
       </div>
     </div> 
-                
-    </div>  
+    </div>   -->
 
 
   </div>
-
 </div>
-
 </form>
 
 </div>
