@@ -46,6 +46,7 @@
 .wheels {
   position: absolute;
   top: -1px;
+  left: 20px;
   z-index: 50;
 }
 
@@ -96,6 +97,16 @@
   border-radius: 20px; 
 }
 
+.interior {
+  position: absolute;
+  top:0px;
+  left:25px;
+}
+
+.interior img{
+  width: 97%;
+}
+
 
 .nav-engines {
   display: inline-block; 
@@ -120,10 +131,10 @@
     border-radius: 20px; 
   }
 
-/*  .packages {
+.packages {
     width: 100%;
 
-  }*/
+  }
 
 
   .btn-primary {
@@ -183,13 +194,14 @@ input[type="radio"] {
 }
 
   
-/*.content {
+.content {
   max-width: 1024px;
   position: relative;
   margin: 0 auto; 
   overflow: hidden; 
 
-}*/
+}
+
 .color  {
   display: inline-block; 
   width: 50px;
@@ -204,12 +216,6 @@ input[type="radio"] {
 
 }
 
-/*.color input:focus {
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px; 
-}*/
-
 .black-box {   
   background-color: rgba(0,0,0, .75);
   -webkit-border-radius: 20px;
@@ -222,7 +228,7 @@ input[type="radio"] {
 
 .black-box-social {
   float: left;
-  width: 100%;
+  width: 98%;
   background-color: rgba(0,0,0, .75);
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -244,20 +250,10 @@ input[type="radio"] {
 
 .container {
 	position: relative;
-  width: 997px;
+  width: 1024px;
   overflow: hidden; 
 	-webkit-transition: width 2s; /* Safari */
   transition: width 2s;
-}
-
-.interior {
-	position: absolute;
-	top:-2px;
-	left:20px;
-}
-
-.interior img{
-  width: 97%;
 }
 
 #overlay {
@@ -273,7 +269,7 @@ input[type="radio"] {
 
 
     /* Custom, iPhone Retina */ 
-    @media only screen and (min-width : 320px) {
+    @media only screen and (max-width: 320px) {
 
         h3 {
           font-family: 'Raleway', sans-serif;
@@ -432,7 +428,7 @@ input[type="radio"] {
 input[type=file]:focus, 
 input[type=checkbox]:focus, 
 input[type=radio]:focus {
-  border: 3px solid #fff;
+  border: 2px solid #fff;
   outline:0px;
 
 }

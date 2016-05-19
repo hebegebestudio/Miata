@@ -14,11 +14,11 @@ if(isset($_POST['submit'])){
 
 // the message
 <h2>
-$content = $message.'  '.$exterior.'  '.$interior.' '.$engine.''.$wheels.'';
+$content = $message.'  '.$exterior.'  '.$interior.' '.$engine.' '.$wheels.'';
 </h2>
 
 // send email
-mail("robert@hebegebes.com", "Make a new car", $content);
+mail("robert@hebegebes.com", "Make My Moda Miata:", $content);
 
 
 get_header();

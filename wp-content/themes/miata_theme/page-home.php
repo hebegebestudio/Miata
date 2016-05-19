@@ -235,8 +235,8 @@ if(isset($exterior)){
       </div>
       <div class="modal-footer">
 
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      <button type="submit" name="submit" class="btn btn-success">Submit</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      <button type="submit" name="submit" class="btn btn-primary">Submit</button>
 
       </div>
     </div>
