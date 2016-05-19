@@ -173,9 +173,9 @@ if(isset($exterior)){
 
 
 
-    <div class="col-xs-12 col-sm-6 black-box-social">
+    <div class="black-box-social">
       <div class="row">
-        <div class="col-xs-12 col-sm-4 text-center">
+        <div class="col-xs-12 col-sm-3 text-center">
           <h3>Packages</h3>
         </div>  
         <div class="col-xs-12 col-sm-8 packages">
@@ -197,10 +197,19 @@ if(isset($exterior)){
 </div>
 
 
+<div class="row span-12">
 
-
+  <div class="col-sm-6">
 <!-- Put Submit & Reset button in row and column here -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-contact">SUBMIT</button>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-contact">SUBMIT</button>
+  </div>
+
+  <div class="col-sm-6">
+<!-- Reload page button, to uncheck any attributes selected for car -->
+    <button type="button" class="btn btn-primary btn-lg" onclick="javascript:window.location.reload()">RESET CAR</button>
+  </div>
+
+</div>
 
 <div class="modal fade" id="modal-contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
