@@ -61,11 +61,11 @@ get_header();
   ?>
 </div>
 
-<!-- <div class="row">
+<div class="row">
   <div class="col-xs-12">
     <a href="<?php bloginfo('url');?>/miatas/>" class="btn btn-primary" role="button">Return to Main Page</a>
   </div>
-</div> -->
+</div>
 
 <?php
 
