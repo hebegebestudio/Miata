@@ -163,13 +163,6 @@
     border: none;
 }
 
-  .swatch {
-    float: left;
-    height: 50px;
-    width: 50px;
-    padding: 5px;
-  }
-
 #banner {
   width: 100%;
   height: 60px;
@@ -237,15 +230,8 @@ input[type="radio"] {
   margin-top: 5px;
 }
 
-/*.list-inline a {
+.list-inline a {
   margin: 40px;
-}*/
-
-.swatch {
-  width: 75%;
-  min-height: 75px;
-  padding: 25px;
-  display: inline-block;
 }
 
 .container {
